@@ -28,7 +28,7 @@ jobs:
 
     - name: Build Solution
       run: |
-        msbuild.exe TinyWall.sln /p:Platform="Any CPU" /p:Configuration="Release" /p:DeployOnBuild="true" /p:PublishProfile="FolderProfile" /p:PublishProfileRootFolder="TinyWall\PublishProfiles"
+        msbuild.exe TinyWall.sln /p:Platform="x64" /p:Configuration="Release" /p:DeployOnBuild="true" /p:PublishProfile="FolderProfile" /p:PublishProfileRootFolder="TinyWall\PublishProfiles"
 #        /p:PublishDestination="TinyWall\bin\Publish" /t:restore /t:build
 
 # /p:OutputPath="TinyWall\bin\Release\"
@@ -37,15 +37,15 @@ jobs:
 # /p:publish="TinyWall\Publish"
 
 
-    - name: Copy Files
-      run: copy "TinyWall\bin\Release\*" "MsiSetup\Sources\ProgramFiles\TinyWall\"
+#    - name: Copy Files
+#      run: copy "TinyWall\bin\Release\*" "MsiSetup\Sources\ProgramFiles\TinyWall\"
 
-    - name: Change to Installer Directory
-      run: cd MsiSetup
+#    - name: Change to Installer Directory
+#      run: echo %cd%
 
-    - name: Build Installer
-      run: |
-        msbuild.exe MsiSetup\MsiSetup.wixproj /p:Platform="Any CPU" /p:Configuration="Release" /p:OutputPath="MsiSetup\bin\Release\"
+#    - name: Build Installer
+#      run: |
+#        msbuild.exe MsiSetup\MsiSetup.wixproj /p:Platform="x64" /p:Configuration="Release" /p:OutputPath="MsiSetup\bin\Release\"
 
     - name: Create Release
       id: create_release
@@ -53,8 +53,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
       with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
+        tag_name: ${{ github.ref_name }}
+        release_name: Release ${{ github.ref_name }}
         body: |
           Changes in this Release
           - https://github.com/${{ github.GITHUB_REPOSITORY }}/commits/master

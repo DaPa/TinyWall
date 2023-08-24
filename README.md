@@ -1,4 +1,4 @@
-![GitHub Actions: Build TinyWall Workflow](https://github.com/ShirazAdam/TinyWall/actions/workflows/Build-TinyWall-NETFramework.yml/badge.svg)
+![GitHub Actions: Build TinyWall Workflow](https://github.com/DaPa/TinyWall/actions/workflows/Build-TinyWall-NETFramework.yml/badge.svg)
 
 <br />
 <div align="center">

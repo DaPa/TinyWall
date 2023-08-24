@@ -97,6 +97,14 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
+  <PropertyGroup>
+    <PreBuildEvent>:: Note: initial folder for this prebuild step is &lt;repo&gt;\MsiSetup\bin\Release
+cd
+:: Note: copy from &lt;repo&gt;\TinyWall\bin\x64\Release\ to &lt;repo&gt;\MsiSetup\Sources\ProgramFiles\TinyWall\ recursivelly
+dir
+
+xcopy "..\..\..\TinyWall\bin\$(PlatformName)\$(ConfigurationName)\%2a" "..\..\Sources\ProgramFiles\TinyWall\" /E /H /F /Y</PreBuildEvent>
+  </PropertyGroup>
   <!--
 	To modify your build process, add your task inside one of the targets below and uncomment it.
 	Other similar extension points exist, see Wix.targets.

@@ -7,7 +7,7 @@
     <StartArguments>/develtool</StartArguments>
   </PropertyGroup>
   <PropertyGroup>
-    <_LastSelectedProfileId>C:\Users\shira_st8177f\Projects\GH\ShirazAdam\TinyWall\TinyWall\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+    <_LastSelectedProfileId>C:\Users\work\Projects\TinyWall\TinyWall\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
     <Compile Update="..\pylorak.Windows\TaskDialogue\TaskDialogueCommonDialogue.cs">

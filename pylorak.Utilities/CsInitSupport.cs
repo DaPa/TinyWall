@@ -1,4 +1,4 @@
-﻿#if NET48
+﻿#if NET472
 namespace System.Runtime.CompilerServices
 {
     using System.ComponentModel;

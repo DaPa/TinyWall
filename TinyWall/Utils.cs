@@ -138,7 +138,7 @@ namespace pylorak.TinyWall
             return sb.ToString();
         }
 
-#if NET481
+#if NET48
         // Use string.IsNullOrEmpty() on .Net 5 and newer
         public static bool IsNullOrEmpty([NotNullWhen(false)] string? str)
         {

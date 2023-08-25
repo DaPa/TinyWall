@@ -52,8 +52,8 @@
     </Condition>
 
     <!-- .Net Framework detection -->
-    <PropertyRef Id="WIX_IS_NETFRAMEWORK_481_OR_LATER_INSTALLED"/>
-    <Condition Message="This application requires .NET Framework 4.8.1 to be installed.">
+    <PropertyRef Id="WIX_IS_NETFRAMEWORK_48_OR_LATER_INSTALLED"/>
+    <Condition Message='This application requires .NET Framework 4.8 to be installed.'>
       <![CDATA[WIX_IS_NETFRAMEWORK_48_OR_LATER_INSTALLED]]>
     </Condition>
 

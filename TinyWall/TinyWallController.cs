@@ -827,7 +827,7 @@ namespace pylorak.TinyWall
             }
 
             var subj = new ExecutableSubject(PathMapper.Instance.ConvertPathIgnoreErrors(ofd.FileName, PathFormat.Win32));
-            AddExceptions(GlobalInstances.AppDatabase.GetExceptionsForApp(subj, true, out _));
+            AddExceptions(GlobalInstances.AppDatabase.GetExceptionsForApp(subj, true, out _, dummy.Handle));
         }
 
         public void WhitelistProcesses(List<ProcessInfo> list)
@@ -852,7 +852,7 @@ namespace pylorak.TinyWall
                 foreach (var subj in from subj in subjects let found = exceptions.Any(ex => ex.Subject.Equals(subj)) where !found select subj)
                 {
                     // Try to recognize app based on this file
-                    exceptions.AddRange(GlobalInstances.AppDatabase.GetExceptionsForApp(subj, true, out _));
+                    exceptions.AddRange(GlobalInstances.AppDatabase.GetExceptionsForApp(subj, true, out _, (IntPtr)null));
                 }
             }
 
@@ -1149,7 +1149,7 @@ namespace pylorak.TinyWall
                         subj = new ExecutableSubject(exePath);
                     }
 
-                    AddExceptions(GlobalInstances.AppDatabase.GetExceptionsForApp(subj, true, out _));
+                    AddExceptions(GlobalInstances.AppDatabase.GetExceptionsForApp(subj, true, out _, (IntPtr)null));
                 });
             });
         }

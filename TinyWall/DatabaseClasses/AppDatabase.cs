@@ -99,7 +99,7 @@ namespace pylorak.TinyWall.DatabaseClasses
             return null;
         }
 
-        internal List<FirewallExceptionV3> GetExceptionsForApp(ExceptionSubject fromSubject, bool guiPrompt, out Application? app)
+        internal List<FirewallExceptionV3> GetExceptionsForApp(ExceptionSubject fromSubject, bool guiPrompt, out Application? app, IntPtr hwndOwner)
         {
             app = null;
             var exceptions = new List<FirewallExceptionV3>();
@@ -167,7 +167,7 @@ namespace pylorak.TinyWall.DatabaseClasses
                     var fileListStr = exceptions.Aggregate(string.Empty, (current, fwex) => current + (fwex.Subject.ToString() + Environment.NewLine));
                     dialog.ExpandedInformation = fileListStr.Trim();
 
-                    switch (dialog.Show())
+                    switch (dialog.Show(hwndOwner))
                     {
                         case 101:
                             break;

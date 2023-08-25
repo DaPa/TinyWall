@@ -441,7 +441,7 @@ namespace pylorak.TinyWall
 
         private void ReinitFormFromSubject(ExceptionSubject subject)
         {
-            List<FirewallExceptionV3> exceptions = GlobalInstances.AppDatabase.GetExceptionsForApp(subject, true, out _);
+            List<FirewallExceptionV3> exceptions = GlobalInstances.AppDatabase.GetExceptionsForApp(subject, true, out _, this.Handle);
 
             if (!exceptions.Any() || ExceptionSettings.Exists(e => e.Subject.Equals(exceptions[0].Subject))) return;
 

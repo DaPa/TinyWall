@@ -1848,7 +1848,7 @@ namespace pylorak.TinyWall
                         return;
                 }
 
-                var exceptions = GlobalInstances.AppDatabase.GetExceptionsForApp(newSubject, false, out _);
+                var exceptions = GlobalInstances.AppDatabase.GetExceptionsForApp(newSubject, false, out _, (IntPtr)null);
                 LearningNewExceptions.AddRange(exceptions);
             }
         }

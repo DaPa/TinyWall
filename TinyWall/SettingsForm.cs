@@ -73,7 +73,7 @@ namespace pylorak.TinyWall
             {
                 try
                 {
-                    list.AddRange(GlobalInstances.AppDatabase.GetExceptionsForApp(new ExecutableSubject(file), true, out _));
+                    list.AddRange(GlobalInstances.AppDatabase.GetExceptionsForApp(new ExecutableSubject(file), true, out _, this.Handle));
                 }
                 catch
                 {

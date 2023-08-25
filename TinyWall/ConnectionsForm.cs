@@ -257,8 +257,10 @@ namespace pylorak.TinyWall
                         li.SubItems.Add(Resources.Messages.TrafficOut);
                         break;
                     case RuleDirection.Invalid:
+                        li.SubItems.Add(Resources.Messages.TrafficInvalid);
                         break;
                     case RuleDirection.InOut:
+                        li.SubItems.Add(Resources.Messages.TrafficInOut);
                         break;
                     default:
                         li.SubItems.Add(string.Empty);

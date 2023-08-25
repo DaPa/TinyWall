@@ -666,6 +666,24 @@ namespace pylorak.TinyWall.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to InOut.
+        /// </summary>
+        internal static string TrafficInOut {
+            get {
+                return ResourceManager.GetString("TrafficInOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -.
+        /// </summary>
+        internal static string TrafficInvalid {
+            get {
+                return ResourceManager.GetString("TrafficInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Out.
         /// </summary>
         internal static string TrafficOut {

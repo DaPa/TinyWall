@@ -408,4 +408,10 @@ The selected executable could be part of {0}. To ensure that this application ca
   <data name="SearchEngine" xml:space="preserve">
     <value>www.bing.co.uk?q={0}</value>
   </data>
+  <data name="TrafficInOut" xml:space="preserve">
+    <value>InOut</value>
+  </data>
+  <data name="TrafficInvalid" xml:space="preserve">
+    <value>-</value>
+  </data>
 </root>

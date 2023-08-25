@@ -1455,7 +1455,7 @@ namespace pylorak.TinyWall
                         bool needsSave = false;
 
                         // Check for inactivity and lock if necessary
-                        if (DateTime.Now - LastControllerCommandTime > TimeSpan.FromMinutes(10))
+                        if (DateTime.Now - LastControllerCommandTime > TimeSpan.FromMinutes(5))
                         {
                             Q.Add(new TwRequest(TwMessageSimple.NewRequest(MessageType.LOCK)));
                         }
@@ -1485,9 +1485,9 @@ namespace pylorak.TinyWall
                         }
 
                         // Periodically reload all rules.
-                        // This is needed to clear out temprary rules
+                        // This is needed to clear out temporary rules
                         // added due to child-process rule inheritance.
-                        if (DateTime.Now - LastRuleReloadTime > TimeSpan.FromMinutes(30))
+                        if (DateTime.Now - LastRuleReloadTime > TimeSpan.FromMinutes(10))
                         {
                             InstallFirewallRules();
                         }

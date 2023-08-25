@@ -69,7 +69,6 @@
       <ComponentRef Id="Database" />
       <ComponentRef Id="hosts" />
       <ComponentGroupRef Id="Dependencies" />
-      <ComponentGroupRef Id="Localizations" />
       <ComponentGroupRef Id="Documentation" />
     </Feature>
 
@@ -174,91 +173,6 @@
           <Component Id="System_ValueTuple_Lib" Guid="{1335CC77-A532-4F69-9811-FF9C83A7A01B}" Win64="$(var.Win64)">
             <File Id="System_ValueTuple_dll" Source=".\Sources\ProgramFiles\TinyWall\System.ValueTuple.dll" Vital="yes" KeyPath="yes" Checksum="yes" Assembly=".net" AssemblyApplication="TinyWallEXE" />
           </Component>
-          <Directory Id="LOCDIR_ar" Name="ar">
-            <Component Id="LocSatelliteLib_ar" Guid="{39BDDB5F-8B93-4DA1-BEDD-D1E904F86094}" Win64="$(var.Win64)">
-              <File Id="LocSatelliteDLL_ar" Source=".\Sources\ProgramFiles\TinyWall\ar\TinyWall.resources.dll" Vital="yes" KeyPath="yes" Checksum="yes" Assembly=".net" AssemblyApplication="TinyWallEXE" />
-            </Component>
-          </Directory>
-          <Directory Id="LOCDIR_bg" Name="bg">
-            <Component Id="LocSatelliteLib_bg" Guid="{ED49577C-871B-4AA4-81D7-E4B879237DBB}" Win64="$(var.Win64)">
-              <File Id="LocSatelliteDLL_bg" Source=".\Sources\ProgramFiles\TinyWall\bg\TinyWall.resources.dll" Vital="yes" KeyPath="yes" Checksum="yes" Assembly=".net" AssemblyApplication="TinyWallEXE" />
-            </Component>
-          </Directory>
-          <Directory Id="LOCDIR_es" Name="es">
-            <Component Id="LocSatelliteLib_es" Guid="{164A848E-99AB-4FF3-BFEE-400B0C43E9B0}" Win64="$(var.Win64)">
-              <File Id="LocSatelliteDLL_es" Source=".\Sources\ProgramFiles\TinyWall\es\TinyWall.resources.dll" Vital="yes" KeyPath="yes" Checksum="yes" Assembly=".net" AssemblyApplication="TinyWallEXE" />
-            </Component>
-          </Directory>
-          <Directory Id="LOCDIR_cs" Name="cs">
-            <Component Id="LocSatelliteLib_cs" Guid="{9C7D2237-46B9-4D91-AC54-92C9B6545B37}" Win64="$(var.Win64)">
-              <File Id="LocSatelliteDLL_cs" Source=".\Sources\ProgramFiles\TinyWall\cs\TinyWall.resources.dll" Vital="yes" KeyPath="yes" Checksum="yes" Assembly=".net" AssemblyApplication="TinyWallEXE" />
-            </Component>
-          </Directory>
-          <Directory Id="LOCDIR_heIL" Name="he-IL">
-            <Component Id="LocSatelliteLib_heIL" Guid="{8B0B0122-4BEF-45CD-BA18-49F200FB1444}" Win64="$(var.Win64)">
-              <File Id="LocSatelliteDLL_heIL" Source=".\Sources\ProgramFiles\TinyWall\he-IL\TinyWall.resources.dll" Vital="yes" KeyPath="yes" Checksum="yes" Assembly=".net" AssemblyApplication="TinyWallEXE" />
-            </Component>
-          </Directory>
-          <Directory Id="LOCDIR_hu" Name="hu">
-            <Component Id="LocSatelliteLib_hu" Guid="{B976793E-5A50-42A6-8164-DC1337862A0F}" Win64="$(var.Win64)">
-              <File Id="LocSatelliteDLL_hu" Source=".\Sources\ProgramFiles\TinyWall\hu\TinyWall.resources.dll" Vital="yes" KeyPath="yes" Checksum="yes" Assembly=".net" AssemblyApplication="TinyWallEXE" />
-            </Component>
-          </Directory>
-          <Directory Id="LOCDIR_fr" Name="fr">
-            <Component Id="LocSatelliteLib_fr" Guid="{C5A9E9ED-2298-461B-8EFC-536717B2EC57}" Win64="$(var.Win64)">
-              <File Id="LocSatelliteDLL_fr" Source=".\Sources\ProgramFiles\TinyWall\fr\TinyWall.resources.dll" Vital="yes" KeyPath="yes" Checksum="yes" Assembly=".net" AssemblyApplication="TinyWallEXE" />
-            </Component>
-          </Directory>
-          <Directory Id="LOCDIR_ja" Name="ja">
-            <Component Id="LocSatelliteLib_ja" Guid="{35185D2D-D623-4174-92A9-ECB743C4B712}" Win64="$(var.Win64)">
-              <File Id="LocSatelliteDLL_ja" Source=".\Sources\ProgramFiles\TinyWall\ja\TinyWall.resources.dll" Vital="yes" KeyPath="yes" Checksum="yes" Assembly=".net" AssemblyApplication="TinyWallEXE" />
-            </Component>
-          </Directory>
-          <Directory Id="LOCDIR_de" Name="de">
-            <Component Id="LocSatelliteLib_de" Guid="{F7BC44A5-6433-4CA9-9FD2-C820EE506A1D}" Win64="$(var.Win64)">
-              <File Id="LocSatelliteDLL_de" Source=".\Sources\ProgramFiles\TinyWall\de\TinyWall.resources.dll" Vital="yes" KeyPath="yes" Checksum="yes" Assembly=".net" AssemblyApplication="TinyWallEXE" />
-            </Component>
-          </Directory>
-          <Directory Id="LOCDIR_nl" Name="nl">
-            <Component Id="LocSatelliteLib_nl" Guid="{DE072136-DEC8-4020-8FE8-0F41B04A65ED}" Win64="$(var.Win64)">
-              <File Id="LocSatelliteDLL_nl" Source=".\Sources\ProgramFiles\TinyWall\nl\TinyWall.resources.dll" Vital="yes" KeyPath="yes" Checksum="yes" Assembly=".net" AssemblyApplication="TinyWallEXE" />
-            </Component>
-          </Directory>
-          <Directory Id="LOCDIR_ko" Name="ko">
-            <Component Id="LocSatelliteLib_ko" Guid="{91FD1C6A-3F94-4926-9C7D-27190A191F13}" Win64="$(var.Win64)">
-              <File Id="LocSatelliteDLL_ko" Source=".\Sources\ProgramFiles\TinyWall\ko\TinyWall.resources.dll" Vital="yes" KeyPath="yes" Checksum="yes" Assembly=".net" AssemblyApplication="TinyWallEXE" />
-            </Component>
-          </Directory>
-          <Directory Id="LOCDIR_pl" Name="pl">
-            <Component Id="LocSatelliteLib_pl" Guid="{92858D12-E2A8-4669-AD3C-192DCEFC61F7}" Win64="$(var.Win64)">
-              <File Id="LocSatelliteDLL_pl" Source=".\Sources\ProgramFiles\TinyWall\pl\TinyWall.resources.dll" Vital="yes" KeyPath="yes" Checksum="yes" Assembly=".net" AssemblyApplication="TinyWallEXE" />
-            </Component>
-          </Directory>
-          <Directory Id="LOCDIR_ru" Name="ru">
-            <Component Id="LocSatelliteLib_ru" Guid="{E6ACA74E-3D0E-47D8-BF85-AC4925B89E5B}" Win64="$(var.Win64)">
-              <File Id="LocSatelliteDLL_ru" Source=".\Sources\ProgramFiles\TinyWall\ru\TinyWall.resources.dll" Vital="yes" KeyPath="yes" Checksum="yes" Assembly=".net" AssemblyApplication="TinyWallEXE" />
-            </Component>
-          </Directory>
-          <Directory Id="LOCDIR_ptBR" Name="pt-BR">
-            <Component Id="LocSatelliteLib_ptBR" Guid="{6629C09A-05EE-4767-9DE4-E1B0BB9DA9D2}" Win64="$(var.Win64)">
-              <File Id="LocSatelliteDLL_ptBR" Source=".\Sources\ProgramFiles\TinyWall\pt-BR\TinyWall.resources.dll" Vital="yes" KeyPath="yes" Checksum="yes" Assembly=".net" AssemblyApplication="TinyWallEXE" />
-            </Component>
-          </Directory>
-          <Directory Id="LOCDIR_it" Name="it">
-            <Component Id="LocSatelliteLib_it" Guid="{400AD52C-59F0-48AE-A877-5BA8EF129260}" Win64="$(var.Win64)">
-              <File Id="LocSatelliteDLL_it" Source=".\Sources\ProgramFiles\TinyWall\it\TinyWall.resources.dll" Vital="yes" KeyPath="yes" Checksum="yes" Assembly=".net" AssemblyApplication="TinyWallEXE" />
-            </Component>
-          </Directory>
-          <Directory Id="LOCDIR_tr" Name="tr">
-            <Component Id="LocSatelliteLib_tr" Guid="{17425844-6683-4F51-A689-79AAF611D207}" Win64="$(var.Win64)">
-              <File Id="LocSatelliteDLL_tr" Source=".\Sources\ProgramFiles\TinyWall\tr\TinyWall.resources.dll" Vital="yes" KeyPath="yes" Checksum="yes" Assembly=".net" AssemblyApplication="TinyWallEXE" />
-            </Component>
-          </Directory>
-          <Directory Id="LOCDIR_zh" Name="zh">
-            <Component Id="LocSatelliteLib_zh" Guid="{E6D09715-2015-413F-A78B-2D409B7993D3}" Win64="$(var.Win64)">
-              <File Id="LocSatelliteDLL_zh" Source=".\Sources\ProgramFiles\TinyWall\zh\TinyWall.resources.dll" Vital="yes" KeyPath="yes" Checksum="yes" Assembly=".net" AssemblyApplication="TinyWallEXE" />
-            </Component>
-          </Directory>
 
 
           <Component Id="License" Guid="{2F2FF77C-8900-406A-AB6E-6DCFF4B53463}" Win64="$(var.Win64)">
@@ -367,27 +281,6 @@
       <ComponentRef Id="System_Text_Json_Lib"/>
       <ComponentRef Id="System_Threading_Tasks_Extensions_Lib"/>
       <ComponentRef Id="System_ValueTuple_Lib"/>
-    </ComponentGroup>
-
-    <!-- Localization grouping -->
-    <ComponentGroup Id="Localizations">
-      <ComponentRef Id="LocSatelliteLib_ar"/>
-      <ComponentRef Id="LocSatelliteLib_bg"/>
-      <ComponentRef Id="LocSatelliteLib_es"/>
-      <ComponentRef Id="LocSatelliteLib_cs"/>
-      <ComponentRef Id="LocSatelliteLib_heIL"/>
-      <ComponentRef Id="LocSatelliteLib_hu"/>
-      <ComponentRef Id="LocSatelliteLib_fr"/>
-      <ComponentRef Id="LocSatelliteLib_ja"/>
-      <ComponentRef Id="LocSatelliteLib_de"/>
-      <ComponentRef Id="LocSatelliteLib_nl"/>
-      <ComponentRef Id="LocSatelliteLib_ko"/>
-      <ComponentRef Id="LocSatelliteLib_ru"/>
-      <ComponentRef Id="LocSatelliteLib_it"/>
-      <ComponentRef Id="LocSatelliteLib_zh"/>
-      <ComponentRef Id="LocSatelliteLib_ptBR"/>
-      <ComponentRef Id="LocSatelliteLib_pl"/>
-      <ComponentRef Id="LocSatelliteLib_tr"/>
     </ComponentGroup>
 
     <!-- Documentation grouping -->

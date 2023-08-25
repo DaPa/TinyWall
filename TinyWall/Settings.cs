@@ -12,10 +12,6 @@ namespace pylorak.TinyWall
     [DataContract(Namespace = "http://schemas.datacontract.org/2004/07/PKSoft")]
     public sealed class ControllerSettings : ISerializable<ControllerSettings>
     {
-        // UI Localization
-        [DataMember(EmitDefaultValue = false)]
-        public string Language = "auto";
-
         // Connections window
         [DataMember(EmitDefaultValue = false)]
         public System.Windows.Forms.FormWindowState ConnFormWindowState = System.Windows.Forms.FormWindowState.Normal;

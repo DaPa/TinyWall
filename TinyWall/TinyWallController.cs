@@ -330,23 +330,8 @@ namespace pylorak.TinyWall
             this._startupOpts = opts;
 
             ActiveConfig.Controller = ControllerSettings.Load();
-            try
-            {
-                if (!ActiveConfig.Controller.Language.Equals("auto", StringComparison.InvariantCultureIgnoreCase))
-                {
-                    Thread.CurrentThread.CurrentUICulture = new CultureInfo(ActiveConfig.Controller.Language);
-                    System.Windows.Forms.Application.CurrentCulture = Thread.CurrentThread.CurrentUICulture;
-                }
-                else
-                {
-                    Thread.CurrentThread.CurrentUICulture = Program.DefaultOsCulture;
-                    System.Windows.Forms.Application.CurrentCulture = Program.DefaultOsCulture;
-                }
-            }
-            catch
-            {
-                // ignored
-            }
+            Thread.CurrentThread.CurrentUICulture = Program.DefaultOsCulture;
+            System.Windows.Forms.Application.CurrentCulture = Program.DefaultOsCulture;
 
             InitializeComponent();
             Utils.SetRightToLeft(TrayMenu);
@@ -1070,8 +1055,6 @@ namespace pylorak.TinyWall
             {
                 if (sf.ShowDialog() != System.Windows.Forms.DialogResult.OK) return;
 
-                var oldLang = ActiveConfig.Controller.Language;
-
                 // Save settings
                 ActiveConfig.Controller = sf.TmpConfig.Controller;
                 ActiveConfig.Controller.Save();
@@ -1097,8 +1080,6 @@ namespace pylorak.TinyWall
                         _firewallState.HasPassword = !string.IsNullOrEmpty(newPassword);
                     }
                 }
-
-                if (oldLang == ActiveConfig.Controller.Language) return;
 
                 Program.RestartOnQuit = true;
                 ExitThread();

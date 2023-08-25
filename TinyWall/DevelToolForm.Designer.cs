@@ -101,7 +101,7 @@
             this.label4.Location = new System.Drawing.Point(8, 56);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 13);
-            this.label4.TabIndex = 9;
+            this.label4.TabIndex = 3;
             this.label4.Text = "Output folder:";
             // 
             // txtAssocOutputPath
@@ -109,7 +109,7 @@
             this.txtAssocOutputPath.Location = new System.Drawing.Point(11, 72);
             this.txtAssocOutputPath.Name = "txtAssocOutputPath";
             this.txtAssocOutputPath.Size = new System.Drawing.Size(423, 20);
-            this.txtAssocOutputPath.TabIndex = 8;
+            this.txtAssocOutputPath.TabIndex = 4;
             this.txtAssocOutputPath.Text = "C:\\Users\\Karoly\\Nextcloud\\TinyWall\\TinyWall3\\TinyWall\\Database";
             // 
             // btnAssocOutputBrowse
@@ -117,7 +117,7 @@
             this.btnAssocOutputBrowse.Location = new System.Drawing.Point(440, 70);
             this.btnAssocOutputBrowse.Name = "btnAssocOutputBrowse";
             this.btnAssocOutputBrowse.Size = new System.Drawing.Size(75, 23);
-            this.btnAssocOutputBrowse.TabIndex = 7;
+            this.btnAssocOutputBrowse.TabIndex = 5;
             this.btnAssocOutputBrowse.Text = "Browse...";
             this.btnAssocOutputBrowse.UseVisualStyleBackColor = true;
             this.btnAssocOutputBrowse.Click += new System.EventHandler(this.btnAssocOutputBrowse_Click);
@@ -128,7 +128,7 @@
             this.label2.Location = new System.Drawing.Point(8, 17);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(111, 13);
-            this.label2.TabIndex = 5;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Database base folder:";
             // 
             // txtDBFolderPath
@@ -136,7 +136,7 @@
             this.txtDBFolderPath.Location = new System.Drawing.Point(11, 33);
             this.txtDBFolderPath.Name = "txtDBFolderPath";
             this.txtDBFolderPath.Size = new System.Drawing.Size(423, 20);
-            this.txtDBFolderPath.TabIndex = 3;
+            this.txtDBFolderPath.TabIndex = 1;
             this.txtDBFolderPath.Text = "C:\\Users\\Karoly\\Nextcloud\\TinyWall\\TinyWall3\\TinyWall\\Database";
             // 
             // btnCollectionsCreate
@@ -144,7 +144,7 @@
             this.btnCollectionsCreate.Location = new System.Drawing.Point(521, 33);
             this.btnCollectionsCreate.Name = "btnCollectionsCreate";
             this.btnCollectionsCreate.Size = new System.Drawing.Size(109, 59);
-            this.btnCollectionsCreate.TabIndex = 2;
+            this.btnCollectionsCreate.TabIndex = 6;
             this.btnCollectionsCreate.Text = "Create";
             this.btnCollectionsCreate.UseVisualStyleBackColor = true;
             this.btnCollectionsCreate.Click += new System.EventHandler(this.btnCollectionsCreate_Click);
@@ -154,7 +154,7 @@
             this.btnProfileFolderBrowse.Location = new System.Drawing.Point(440, 31);
             this.btnProfileFolderBrowse.Name = "btnProfileFolderBrowse";
             this.btnProfileFolderBrowse.Size = new System.Drawing.Size(75, 23);
-            this.btnProfileFolderBrowse.TabIndex = 0;
+            this.btnProfileFolderBrowse.TabIndex = 2;
             this.btnProfileFolderBrowse.Text = "Browse...";
             this.btnProfileFolderBrowse.UseVisualStyleBackColor = true;
             this.btnProfileFolderBrowse.Click += new System.EventHandler(this.btnProfileFolderBrowse_Click);
@@ -164,7 +164,7 @@
             this.btnExit.Location = new System.Drawing.Point(709, 367);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
-            this.btnExit.TabIndex = 2;
+            this.btnExit.TabIndex = 1;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -198,7 +198,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(772, 349);
-            this.tabControl1.TabIndex = 4;
+            this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -221,7 +221,7 @@
             this.label1.Location = new System.Drawing.Point(8, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 13);
-            this.label1.TabIndex = 3;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Executable:";
             // 
             // btnAssocCreate
@@ -229,7 +229,7 @@
             this.btnAssocCreate.Location = new System.Drawing.Point(521, 26);
             this.btnAssocCreate.Name = "btnAssocCreate";
             this.btnAssocCreate.Size = new System.Drawing.Size(75, 23);
-            this.btnAssocCreate.TabIndex = 4;
+            this.btnAssocCreate.TabIndex = 3;
             this.btnAssocCreate.Text = "Create";
             this.btnAssocCreate.UseVisualStyleBackColor = true;
             this.btnAssocCreate.Click += new System.EventHandler(this.btnAssocCreate_Click);
@@ -239,7 +239,7 @@
             this.btnAssocBrowse.Location = new System.Drawing.Point(440, 26);
             this.btnAssocBrowse.Name = "btnAssocBrowse";
             this.btnAssocBrowse.Size = new System.Drawing.Size(75, 23);
-            this.btnAssocBrowse.TabIndex = 0;
+            this.btnAssocBrowse.TabIndex = 2;
             this.btnAssocBrowse.Text = "Browse...";
             this.btnAssocBrowse.UseVisualStyleBackColor = true;
             this.btnAssocBrowse.Click += new System.EventHandler(this.btnAssocBrowse_Click);
@@ -258,7 +258,7 @@
             this.txtAssocResult.Name = "txtAssocResult";
             this.txtAssocResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtAssocResult.Size = new System.Drawing.Size(747, 251);
-            this.txtAssocResult.TabIndex = 2;
+            this.txtAssocResult.TabIndex = 4;
             this.txtAssocResult.WordWrap = false;
             // 
             // tabPage2
@@ -301,7 +301,7 @@
             this.btnUpdateInstallerBrowse.Location = new System.Drawing.Point(446, 79);
             this.btnUpdateInstallerBrowse.Name = "btnUpdateInstallerBrowse";
             this.btnUpdateInstallerBrowse.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdateInstallerBrowse.TabIndex = 25;
+            this.btnUpdateInstallerBrowse.TabIndex = 4;
             this.btnUpdateInstallerBrowse.Text = "Browse...";
             this.btnUpdateInstallerBrowse.UseVisualStyleBackColor = true;
             this.btnUpdateInstallerBrowse.Click += new System.EventHandler(this.btnUpdateInstallerBrowse_Click);
@@ -311,7 +311,7 @@
             this.txtUpdateURL.Location = new System.Drawing.Point(17, 34);
             this.txtUpdateURL.Name = "txtUpdateURL";
             this.txtUpdateURL.Size = new System.Drawing.Size(423, 20);
-            this.txtUpdateURL.TabIndex = 23;
+            this.txtUpdateURL.TabIndex = 1;
             this.txtUpdateURL.Text = "https://tinywall.pados.hu/updates/UpdVer6/";
             // 
             // label8
@@ -320,7 +320,7 @@
             this.label8.Location = new System.Drawing.Point(14, 18);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(96, 13);
-            this.label8.TabIndex = 24;
+            this.label8.TabIndex = 0;
             this.label8.Text = "Update base URL:";
             // 
             // btnUpdateOutputBrowse
@@ -328,7 +328,7 @@
             this.btnUpdateOutputBrowse.Location = new System.Drawing.Point(446, 120);
             this.btnUpdateOutputBrowse.Name = "btnUpdateOutputBrowse";
             this.btnUpdateOutputBrowse.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdateOutputBrowse.TabIndex = 22;
+            this.btnUpdateOutputBrowse.TabIndex = 7;
             this.btnUpdateOutputBrowse.Text = "Browse...";
             this.btnUpdateOutputBrowse.UseVisualStyleBackColor = true;
             this.btnUpdateOutputBrowse.Click += new System.EventHandler(this.btnUpdateOutputBrowse_Click);
@@ -339,7 +339,7 @@
             this.label7.Location = new System.Drawing.Point(14, 107);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(71, 13);
-            this.label7.TabIndex = 20;
+            this.label7.TabIndex = 5;
             this.label7.Text = "Output folder:";
             // 
             // txtUpdateOutput
@@ -347,7 +347,7 @@
             this.txtUpdateOutput.Location = new System.Drawing.Point(17, 123);
             this.txtUpdateOutput.Name = "txtUpdateOutput";
             this.txtUpdateOutput.Size = new System.Drawing.Size(423, 20);
-            this.txtUpdateOutput.TabIndex = 19;
+            this.txtUpdateOutput.TabIndex = 6;
             this.txtUpdateOutput.Text = "C:\\Users\\Karoly\\Nextcloud\\TinyWall\\TinyWall3\\OnlineUpdate";
             // 
             // txtUpdateInstallerProjectDir
@@ -355,7 +355,7 @@
             this.txtUpdateInstallerProjectDir.Location = new System.Drawing.Point(17, 79);
             this.txtUpdateInstallerProjectDir.Name = "txtUpdateInstallerProjectDir";
             this.txtUpdateInstallerProjectDir.Size = new System.Drawing.Size(423, 20);
-            this.txtUpdateInstallerProjectDir.TabIndex = 12;
+            this.txtUpdateInstallerProjectDir.TabIndex = 3;
             this.txtUpdateInstallerProjectDir.Text = "C:\\Users\\Karoly\\Nextcloud\\TinyWall\\TinyWall3\\MsiSetup";
             // 
             // btnUpdateCreate
@@ -363,7 +363,7 @@
             this.btnUpdateCreate.Location = new System.Drawing.Point(574, 79);
             this.btnUpdateCreate.Name = "btnUpdateCreate";
             this.btnUpdateCreate.Size = new System.Drawing.Size(109, 59);
-            this.btnUpdateCreate.TabIndex = 11;
+            this.btnUpdateCreate.TabIndex = 8;
             this.btnUpdateCreate.Text = "Create";
             this.btnUpdateCreate.UseVisualStyleBackColor = true;
             this.btnUpdateCreate.Click += new System.EventHandler(this.btnUpdateCreate_Click);
@@ -374,7 +374,7 @@
             this.label5.Location = new System.Drawing.Point(14, 63);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(167, 13);
-            this.label5.TabIndex = 13;
+            this.label5.TabIndex = 2;
             this.label5.Text = "TinyWall installer project directory:";
             // 
             // tabPage3
@@ -411,7 +411,7 @@
             this.listPrimaries.Location = new System.Drawing.Point(6, 6);
             this.listPrimaries.Name = "listPrimaries";
             this.listPrimaries.Size = new System.Drawing.Size(212, 264);
-            this.listPrimaries.TabIndex = 8;
+            this.listPrimaries.TabIndex = 0;
             this.listPrimaries.SelectedIndexChanged += new System.EventHandler(this.listPrimaries_SelectedIndexChanged);
             // 
             // txtOutputPath
@@ -419,7 +419,7 @@
             this.txtOutputPath.Location = new System.Drawing.Point(9, 289);
             this.txtOutputPath.Name = "txtOutputPath";
             this.txtOutputPath.Size = new System.Drawing.Size(349, 20);
-            this.txtOutputPath.TabIndex = 12;
+            this.txtOutputPath.TabIndex = 6;
             this.txtOutputPath.Text = "D:\\archive\\d0\\projects\\TinyWall";
             // 
             // label9
@@ -428,7 +428,7 @@
             this.label9.Location = new System.Drawing.Point(6, 273);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(66, 13);
-            this.label9.TabIndex = 13;
+            this.label9.TabIndex = 5;
             this.label9.Text = "Output path:";
             // 
             // btnAddPrimaries
@@ -436,7 +436,7 @@
             this.btnAddPrimaries.Location = new System.Drawing.Point(224, 19);
             this.btnAddPrimaries.Name = "btnAddPrimaries";
             this.btnAddPrimaries.Size = new System.Drawing.Size(131, 30);
-            this.btnAddPrimaries.TabIndex = 7;
+            this.btnAddPrimaries.TabIndex = 1;
             this.btnAddPrimaries.Text = "Add Primaries";
             this.btnAddPrimaries.UseVisualStyleBackColor = true;
             this.btnAddPrimaries.Click += new System.EventHandler(this.btnAddPrimaries_Click);
@@ -446,7 +446,7 @@
             this.btnResxClear.Location = new System.Drawing.Point(224, 55);
             this.btnResxClear.Name = "btnResxClear";
             this.btnResxClear.Size = new System.Drawing.Size(131, 30);
-            this.btnResxClear.TabIndex = 11;
+            this.btnResxClear.TabIndex = 2;
             this.btnResxClear.Text = "Clear";
             this.btnResxClear.UseVisualStyleBackColor = true;
             this.btnResxClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -456,7 +456,7 @@
             this.btnOptimize.Location = new System.Drawing.Point(224, 115);
             this.btnOptimize.Name = "btnOptimize";
             this.btnOptimize.Size = new System.Drawing.Size(131, 30);
-            this.btnOptimize.TabIndex = 10;
+            this.btnOptimize.TabIndex = 3;
             this.btnOptimize.Text = "Optimize!";
             this.btnOptimize.UseVisualStyleBackColor = true;
             this.btnOptimize.Click += new System.EventHandler(this.btnOptimize_Click);
@@ -467,7 +467,7 @@
             this.listSatellites.Location = new System.Drawing.Point(361, 6);
             this.listSatellites.Name = "listSatellites";
             this.listSatellites.Size = new System.Drawing.Size(212, 264);
-            this.listSatellites.TabIndex = 9;
+            this.listSatellites.TabIndex = 4;
             // 
             // tabPage6
             // 
@@ -498,7 +498,7 @@
             this.txtTimestampingServ.Location = new System.Drawing.Point(9, 199);
             this.txtTimestampingServ.Name = "txtTimestampingServ";
             this.txtTimestampingServ.Size = new System.Drawing.Size(329, 20);
-            this.txtTimestampingServ.TabIndex = 13;
+            this.txtTimestampingServ.TabIndex = 12;
             this.txtTimestampingServ.Text = "http://timestamp.digicert.com";
             // 
             // label14
@@ -507,7 +507,7 @@
             this.label14.Location = new System.Drawing.Point(6, 183);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(112, 13);
-            this.label14.TabIndex = 12;
+            this.label14.TabIndex = 11;
             this.label14.Text = "Timestamping service:";
             // 
             // btnSigntoolBrowse
@@ -515,7 +515,7 @@
             this.btnSigntoolBrowse.Location = new System.Drawing.Point(344, 158);
             this.btnSigntoolBrowse.Name = "btnSigntoolBrowse";
             this.btnSigntoolBrowse.Size = new System.Drawing.Size(75, 23);
-            this.btnSigntoolBrowse.TabIndex = 11;
+            this.btnSigntoolBrowse.TabIndex = 10;
             this.btnSigntoolBrowse.Text = "Browse...";
             this.btnSigntoolBrowse.UseVisualStyleBackColor = true;
             this.btnSigntoolBrowse.Click += new System.EventHandler(this.btnSigntoolBrowse_Click);
@@ -525,7 +525,7 @@
             this.txtSigntool.Location = new System.Drawing.Point(9, 160);
             this.txtSigntool.Name = "txtSigntool";
             this.txtSigntool.Size = new System.Drawing.Size(329, 20);
-            this.txtSigntool.TabIndex = 10;
+            this.txtSigntool.TabIndex = 9;
             this.txtSigntool.Text = "C:\\Program Files (x86)\\Microsoft SDKs\\Windows\\v7.1A\\Bin\\Signtool.exe";
             // 
             // label13
@@ -534,7 +534,7 @@
             this.label13.Location = new System.Drawing.Point(6, 144);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(88, 13);
-            this.label13.TabIndex = 9;
+            this.label13.TabIndex = 8;
             this.label13.Text = "Signtool location:";
             // 
             // btnBatchSign
@@ -542,7 +542,7 @@
             this.btnBatchSign.Location = new System.Drawing.Point(9, 235);
             this.btnBatchSign.Name = "btnBatchSign";
             this.btnBatchSign.Size = new System.Drawing.Size(109, 59);
-            this.btnBatchSign.TabIndex = 8;
+            this.btnBatchSign.TabIndex = 13;
             this.btnBatchSign.Text = "Batch sign!";
             this.btnBatchSign.UseVisualStyleBackColor = true;
             this.btnBatchSign.Click += new System.EventHandler(this.btnBatchSign_Click);

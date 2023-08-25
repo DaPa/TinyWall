@@ -55,13 +55,11 @@
             this.listRecommendedGlobalProfiles = new System.Windows.Forms.CheckedListBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label11 = new System.Windows.Forms.Label();
             this.chkHostsBlocklist = new System.Windows.Forms.CheckBox();
             this.chkEnableBlocklists = new System.Windows.Forms.CheckBox();
             this.chkBlockMalwarePorts = new System.Windows.Forms.CheckBox();
             this.chkDisplayOffBlock = new System.Windows.Forms.CheckBox();
             this.chkLockHostsFile = new System.Windows.Forms.CheckBox();
-            this.comboLanguages = new System.Windows.Forms.ComboBox();
             this.chkEnableHotkeys = new System.Windows.Forms.CheckBox();
             this.chkAutoUpdateCheck = new System.Windows.Forms.CheckBox();
             this.chkAskForExceptionDetails = new System.Windows.Forms.CheckBox();
@@ -287,22 +285,15 @@
             // tableLayoutPanel1
             // 
             resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
-            this.tableLayoutPanel1.Controls.Add(this.label11, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.chkHostsBlocklist, 4, 3);
             this.tableLayoutPanel1.Controls.Add(this.chkEnableBlocklists, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.chkBlockMalwarePorts, 4, 2);
-            this.tableLayoutPanel1.Controls.Add(this.chkDisplayOffBlock, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.chkDisplayOffBlock, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.chkLockHostsFile, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.comboLanguages, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.chkEnableHotkeys, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.chkAutoUpdateCheck, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.chkAskForExceptionDetails, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.chkEnableHotkeys, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.chkAutoUpdateCheck, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.chkAskForExceptionDetails, 0, 1);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            // 
-            // label11
-            // 
-            resources.ApplyResources(this.label11, "label11");
-            this.label11.Name = "label11";
             // 
             // chkHostsBlocklist
             // 
@@ -337,13 +328,6 @@
             this.tableLayoutPanel1.SetColumnSpan(this.chkLockHostsFile, 2);
             this.chkLockHostsFile.Name = "chkLockHostsFile";
             this.chkLockHostsFile.UseVisualStyleBackColor = true;
-            // 
-            // comboLanguages
-            // 
-            resources.ApplyResources(this.comboLanguages, "comboLanguages");
-            this.comboLanguages.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboLanguages.FormattingEnabled = true;
-            this.comboLanguages.Name = "comboLanguages";
             // 
             // chkEnableHotkeys
             // 
@@ -628,8 +612,6 @@
         private System.Windows.Forms.Button btnAppRemoveAll;
         private System.Windows.Forms.TextBox txtExceptionListFilter;
         private System.Windows.Forms.CheckBox chkEnableBlocklists;
-        private System.Windows.Forms.ComboBox comboLanguages;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.CheckBox chkEnableHotkeys;
         private System.Windows.Forms.LinkLabel lblLinkAttributions;
         private System.Windows.Forms.ColumnHeader columnType;

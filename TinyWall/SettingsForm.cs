@@ -101,17 +101,6 @@ namespace pylorak.TinyWall
                 chkAutoUpdateCheck.Checked = TmpConfig.Service.AutoUpdateCheck;
                 chkAskForExceptionDetails.Checked = TmpConfig.Controller.AskForExceptionDetails;
                 chkEnableHotkeys.Checked = TmpConfig.Controller.EnableGlobalHotkeys;
-                comboLanguages.SelectedIndex = 0;
-
-                for (int i = 0; i < comboLanguages.Items.Count; ++i)
-                {
-                    IdWithName item = (IdWithName)comboLanguages.Items[i];
-
-                    if (!item.Id.Equals(TmpConfig.Controller.Language, StringComparison.OrdinalIgnoreCase)) continue;
-
-                    comboLanguages.SelectedIndex = i;
-                    break;
-                }
 
                 // Fill Machine Settings tab
                 chkDisplayOffBlock.Checked = TmpConfig.Service.ActiveProfile.DisplayOffBlock;
@@ -310,8 +299,6 @@ namespace pylorak.TinyWall
             TmpConfig.Service.Blocklists.EnableHostsBlocklist = chkHostsBlocklist.Checked;
             TmpConfig.Service.Blocklists.EnableBlocklists = chkEnableBlocklists.Checked;
             TmpConfig.Service.ActiveProfile.DisplayOffBlock = chkDisplayOffBlock.Checked;
-
-            TmpConfig.Controller.Language = ((IdWithName)comboLanguages.SelectedItem).Id;
 
             this.DialogResult = DialogResult.OK;
         }
@@ -541,25 +528,6 @@ namespace pylorak.TinyWall
             Utils.SetDoubleBuffering(listApplications, true);
             listApplications.ListViewItemSorter = new ListViewItemComparer(0, IconList);
             tabControl1.SelectedIndex = TmpConfig.Controller.SettingsTabIndex;
-
-            comboLanguages.Items.Add(new IdWithName("auto", "Automatic"));
-            comboLanguages.Items.Add(new IdWithName("bg", "български"));
-            comboLanguages.Items.Add(new IdWithName("cs", "Čeština"));
-            comboLanguages.Items.Add(new IdWithName("de", "Deutsch"));
-            comboLanguages.Items.Add(new IdWithName("en", "English"));
-            comboLanguages.Items.Add(new IdWithName("es", "Español"));
-            comboLanguages.Items.Add(new IdWithName("fr", "Français"));
-            comboLanguages.Items.Add(new IdWithName("it", "Italiano"));
-            comboLanguages.Items.Add(new IdWithName("he-IL", "עברית"));
-            comboLanguages.Items.Add(new IdWithName("hu", "Magyar"));
-            comboLanguages.Items.Add(new IdWithName("nl", "Nederlands"));
-            comboLanguages.Items.Add(new IdWithName("pl", "Polski"));
-            comboLanguages.Items.Add(new IdWithName("pt-BR", "Português Brasileiro"));
-            comboLanguages.Items.Add(new IdWithName("ru", "Русский"));
-            comboLanguages.Items.Add(new IdWithName("tr", "Türkçe"));
-            comboLanguages.Items.Add(new IdWithName("ja", "日本語"));
-            comboLanguages.Items.Add(new IdWithName("ko", "한국어"));
-            comboLanguages.Items.Add(new IdWithName("zh", "汉语"));
 
             IconList.Images.Add("deleted", Resources.Icons.delete);
             IconList.Images.Add("network-drive", Resources.Icons.network_drive_small);

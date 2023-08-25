@@ -322,14 +322,14 @@ namespace pylorak.TinyWall
 
         private async void btnOK_Click(object sender, EventArgs e)
         {
-            Parallel.For(0, ExceptionSettings.Count - 1, (i, state) =>
+            Parallel.For(0, ExceptionSettings.Count, (i, state) =>
             {
                 ExceptionSettings[i].ChildProcessesInherit = chkInheritToChildren.Checked;
             });
 
             if (radBlock.Checked)
             {
-                Parallel.For(0, ExceptionSettings.Count - 1, (i, state) =>
+                Parallel.For(0, ExceptionSettings.Count, (i, state) =>
                 {
                     ExceptionSettings[i].Policy = HardBlockPolicy.Instance;
                 });
@@ -346,7 +346,7 @@ namespace pylorak.TinyWall
                     pol.AllowedLocalTcpListenerPorts = await Task.Run(() => CleanupPortsList(txtListenPortTCP.Text));
                     pol.AllowedLocalUdpListenerPorts = await Task.Run(() => CleanupPortsList(txtListenPortUDP.Text));
 
-                    Parallel.For(0, ExceptionSettings.Count - 1, (i, state) =>
+                    Parallel.For(0, ExceptionSettings.Count, (i, state) =>
                     {
                         ExceptionSettings[i].Policy = pol;
                     });
@@ -370,7 +370,7 @@ namespace pylorak.TinyWall
                     LocalNetworkOnly = chkRestrictToLocalNetwork.Checked
                 };
 
-                Parallel.For(0, ExceptionSettings.Count - 1, (i, state) =>
+                Parallel.For(0, ExceptionSettings.Count, (i, state) =>
                 {
                     ExceptionSettings[i].Policy = pol;
                 });
@@ -378,7 +378,7 @@ namespace pylorak.TinyWall
             }
 
             var dateTimeNow = DateTime.Now;
-            Parallel.For(0, ExceptionSettings.Count - 1, (i, state) =>
+            Parallel.For(0, ExceptionSettings.Count, (i, state) =>
             {
                 ExceptionSettings[i].CreationDate = dateTimeNow;
             });

@@ -16,6 +16,8 @@ namespace pylorak.TinyWall
     {
         private readonly TinyWallController Controller;
         private readonly Size IconSize = new((int)Math.Round(16 * Utils.DpiScalingFactor), (int)Math.Round(16 * Utils.DpiScalingFactor));
+        public bool closed_to_open_manage = false;
+        private int time_span_minutes = 5; // pair for comboBoxTimeSpan.SelectedIndex
 
         internal ConnectionsForm(TinyWallController ctrl)
         {
@@ -28,6 +30,8 @@ namespace pylorak.TinyWall
             this.IconList.Images.Add("store", Resources.Icons.store);
             this.IconList.Images.Add("system", Resources.Icons.windows_small);
             this.IconList.Images.Add("network-drive", Resources.Icons.network_drive_small);
+            this.closed_to_open_manage = false;
+            this.comboBoxTimeSpan.SelectedIndex = 3; // 5 minutes, see time_span_minutes
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -138,7 +142,7 @@ namespace pylorak.TinyWall
                 }
 
                 var filteredLog = new List<FirewallLogEntry>();
-                TimeSpan refSpan = TimeSpan.FromMinutes(5);
+                TimeSpan refSpan = TimeSpan.FromMinutes(this.time_span_minutes);
                 foreach (var newEntry in fwLog)
                 {
                     // Ignore log entries older than refSpan
@@ -508,6 +512,43 @@ namespace pylorak.TinyWall
 
             btnRefresh_Click(btnRefresh, EventArgs.Empty);
             e.Handled = true;
+        }
+
+        private void buttonManage_Click(object sender, EventArgs e)
+        {
+            this.closed_to_open_manage = true;
+            this.Close();
+        }
+
+        private void comboBoxTimeSpan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // 1, 2, 3, 5, 30, 90
+            switch (comboBoxTimeSpan.SelectedIndex)
+            {
+                case 0:
+                    time_span_minutes = 1;
+                    break;
+                case 1:
+                    time_span_minutes = 2;
+                    break;
+                case 2:
+                    time_span_minutes = 3;
+                    break;
+                case 3:
+                    time_span_minutes = 5;
+                    break;
+                case 4:
+                    time_span_minutes = 30;
+                    break;
+                case 5:
+                    time_span_minutes = 90;
+                    break;
+                default:
+                    time_span_minutes = 5;
+                    break;
+            }
+            chkShowBlocked.Text = "Show blocked apps (in last " + time_span_minutes.ToString() + " mins)";
+            btnRefresh_Click(comboBoxTimeSpan, EventArgs.Empty);
         }
     }
 }

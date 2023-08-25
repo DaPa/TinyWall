@@ -36,6 +36,8 @@ namespace pylorak.TinyWall
         private string? _mNewPassword;
         private Size _iconSize = new((int)Math.Round(16 * Utils.DpiScalingFactor), (int)Math.Round(16 * Utils.DpiScalingFactor));
 
+        public bool closed_to_open_connections = false;
+
         internal SettingsForm(ServerConfiguration service, ControllerSettings controller)
         {
             InitializeComponent();
@@ -55,6 +57,7 @@ namespace pylorak.TinyWall
             this.btnUpdate.Image = GlobalInstances.UpdateBtnIcon;
             this.btnWeb.Image = GlobalInstances.WebBtnIcon;
             this.btnDonate.BackgroundImage = Resources.Icons.donate;
+            this.closed_to_open_connections = false;
 
             listApplications.AllowDrop = true;
             listApplications.DragEnter += ListApplications_DragEnter;
@@ -635,6 +638,12 @@ namespace pylorak.TinyWall
         {
             var psi = new ProcessStartInfo(@"https://github.com/pylorak/tinywall") { UseShellExecute = true };
             Process.Start(psi);
+        }
+
+        private void buttonConnections_Click(object sender, EventArgs e)
+        {
+            this.closed_to_open_connections = true;
+            btnCancel_Click(sender, e);
         }
     }
 }

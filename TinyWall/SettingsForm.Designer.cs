@@ -33,6 +33,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.buttonConnections = new System.Windows.Forms.Button();
             this.txtExceptionListFilter = new System.Windows.Forms.TextBox();
             this.btnAppRemoveAll = new System.Windows.Forms.Button();
             this.btnAppAutoDetect = new System.Windows.Forms.Button();
@@ -116,6 +117,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.buttonConnections);
             this.tabPage3.Controls.Add(this.txtExceptionListFilter);
             this.tabPage3.Controls.Add(this.btnAppRemoveAll);
             this.tabPage3.Controls.Add(this.btnAppAutoDetect);
@@ -129,6 +131,13 @@
             resources.ApplyResources(this.tabPage3, "tabPage3");
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // buttonConnections
+            // 
+            resources.ApplyResources(this.buttonConnections, "buttonConnections");
+            this.buttonConnections.Name = "buttonConnections";
+            this.buttonConnections.UseVisualStyleBackColor = true;
+            this.buttonConnections.Click += new System.EventHandler(this.buttonConnections_Click);
             // 
             // txtExceptionListFilter
             // 
@@ -526,8 +535,10 @@
             // 
             // SettingsForm
             // 
+            this.AcceptButton = this.btnOK;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.tabControl1);
@@ -618,5 +629,6 @@
         private System.Windows.Forms.CheckBox chkDisplayOffBlock;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnGithub;
+        private System.Windows.Forms.Button buttonConnections;
     }
 }

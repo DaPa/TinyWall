@@ -57,6 +57,9 @@
             this.chkShowActive = new System.Windows.Forms.CheckBox();
             this.chkShowBlocked = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonManage = new System.Windows.Forms.Button();
+            this.comboBoxTimeSpan = new System.Windows.Forms.ComboBox();
+            this.labelTimeSpan = new System.Windows.Forms.Label();
             this.contextMenuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -64,6 +67,7 @@
             // btnClose
             // 
             resources.ApplyResources(this.btnClose, "btnClose");
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClose.Name = "btnClose";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -254,16 +258,50 @@
             this.tableLayoutPanel1.Controls.Add(this.chkShowBlocked, 0, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             // 
+            // buttonManage
+            // 
+            resources.ApplyResources(this.buttonManage, "buttonManage");
+            this.buttonManage.Name = "buttonManage";
+            this.buttonManage.UseVisualStyleBackColor = true;
+            this.buttonManage.Click += new System.EventHandler(this.buttonManage_Click);
+            // 
+            // comboBoxTimeSpan
+            // 
+            resources.ApplyResources(this.comboBoxTimeSpan, "comboBoxTimeSpan");
+            this.comboBoxTimeSpan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTimeSpan.FormattingEnabled = true;
+            this.comboBoxTimeSpan.Items.AddRange(new object[] {
+            resources.GetString("comboBoxTimeSpan.Items"),
+            resources.GetString("comboBoxTimeSpan.Items1"),
+            resources.GetString("comboBoxTimeSpan.Items2"),
+            resources.GetString("comboBoxTimeSpan.Items3"),
+            resources.GetString("comboBoxTimeSpan.Items4"),
+            resources.GetString("comboBoxTimeSpan.Items5")});
+            this.comboBoxTimeSpan.Name = "comboBoxTimeSpan";
+            this.comboBoxTimeSpan.SelectedIndexChanged += new System.EventHandler(this.comboBoxTimeSpan_SelectedIndexChanged);
+            // 
+            // labelTimeSpan
+            // 
+            resources.ApplyResources(this.labelTimeSpan, "labelTimeSpan");
+            this.labelTimeSpan.Name = "labelTimeSpan";
+            // 
             // ConnectionsForm
             // 
+            this.AcceptButton = this.buttonManage;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnClose;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.list);
             this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.comboBoxTimeSpan);
+            this.Controls.Add(this.buttonManage);
+            this.Controls.Add(this.labelTimeSpan);
+            this.DoubleBuffered = true;
             this.KeyPreview = true;
             this.Name = "ConnectionsForm";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConnectionsForm_FormClosing);
             this.Load += new System.EventHandler(this.ConnectionsForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ConnectionsForm_KeyDown);
@@ -304,5 +342,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button buttonManage;
+        private System.Windows.Forms.ComboBox comboBoxTimeSpan;
+        private System.Windows.Forms.Label labelTimeSpan;
     }
 }

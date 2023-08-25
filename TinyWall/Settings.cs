@@ -93,7 +93,7 @@ namespace pylorak.TinyWall
         {
             get
             {
-#if DEBUG
+#if DEBUG  // OLD_DEBUG
                 return Path.GetDirectoryName(Utils.ExecutablePath);
 #else
                 string dir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);

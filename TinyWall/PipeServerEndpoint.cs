@@ -90,7 +90,7 @@ namespace pylorak.TinyWall
 
         private static bool AuthAsServer(PipeStream stream)
         {
-#if !DEBUG
+#if !DEBUG  // !OLD_DEBUG
             if (!Utils.SafeNativeMethods.GetNamedPipeClientProcessId(stream.SafePipeHandle.DangerousGetHandle(), out ulong clientPid))
                 return false;
 

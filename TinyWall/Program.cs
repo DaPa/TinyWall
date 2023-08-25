@@ -23,7 +23,7 @@ namespace pylorak.TinyWall
 
         private static int StartService(TinyWallService tw)
         {
-#if DEBUG
+#if DEBUG  // OLD_DEBUG
             if (!Utils.RunningAsAdmin())
             {
                 Console.WriteLine(@"Error: Not started as an admin process.");
@@ -38,7 +38,7 @@ namespace pylorak.TinyWall
                 return -1;
             }
 
-#if DEBUG
+#if DEBUG  // OLD_DEBUG
             tw.Start(Array.Empty<string>());
             tw.StartedEvent.WaitOne();
 #else
@@ -149,7 +149,7 @@ namespace pylorak.TinyWall
             opts.updatenow = Utils.StringArrayContains(args, "/updatenow");
             opts.startup = Utils.StringArrayContains(args, "/startup");
 
-#if !DEBUG
+#if !DEBUG  // !OLD_DEBUG
             // Register an unhandled exception handler - lol
 
             void UnhandledException_Gui(object sender, UnhandledExceptionEventArgs e)
@@ -212,7 +212,7 @@ namespace pylorak.TinyWall
                 case StartUpMode.Service:
                     using (var srv = new TinyWallService())
                     {
-#if !DEBUG
+#if !DEBUG  // !OLD_DEBUG
                         pylorak.Windows.PathMapper.Instance.AutoUpdate = false;
 #endif
                         StartService(srv);

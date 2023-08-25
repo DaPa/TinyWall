@@ -17,7 +17,7 @@ namespace pylorak.TinyWall
 
         internal static bool IsServiceRunning(string logContext, bool installing)
         {
-#if !DEBUG
+#if !DEBUG  // !OLD_DEBUG
             try
             {
                 using var sc = new ServiceController(TinyWallService.SERVICE_NAME);

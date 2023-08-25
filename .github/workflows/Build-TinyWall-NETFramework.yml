@@ -1,4 +1,4 @@
-name: Build TinyWall (.NET Framework 4.8.1)
+name: Build TinyWall (.NET Framework 4.8)
 
 on: [push]
 
@@ -53,8 +53,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
       with:
-        tag_name: ${{ github.ref_name }}
-        release_name: Release ${{ github.ref_name }}
+        tag_name: ${{ github.ref_name }}-${{ github.run_number }}
+        release_name: Release ${{ github.ref_name }}-${{ github.run_number }}
         body: |
           Changes in this Release
           - https://github.com/${{ github.GITHUB_REPOSITORY }}/commits/master

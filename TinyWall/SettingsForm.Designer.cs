@@ -62,7 +62,6 @@
             this.chkBlockMalwarePorts = new System.Windows.Forms.CheckBox();
             this.chkDisplayOffBlock = new System.Windows.Forms.CheckBox();
             this.chkLockHostsFile = new System.Windows.Forms.CheckBox();
-            this.comboLanguages = new System.Windows.Forms.ComboBox();
             this.chkEnableHotkeys = new System.Windows.Forms.CheckBox();
             this.chkAutoUpdateCheck = new System.Windows.Forms.CheckBox();
             this.chkAskForExceptionDetails = new System.Windows.Forms.CheckBox();
@@ -308,7 +307,6 @@
             this.tableLayoutPanel1.Controls.Add(this.chkBlockMalwarePorts, 4, 2);
             this.tableLayoutPanel1.Controls.Add(this.chkDisplayOffBlock, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.chkLockHostsFile, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.comboLanguages, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.chkEnableHotkeys, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.chkAutoUpdateCheck, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.chkAskForExceptionDetails, 0, 2);
@@ -352,13 +350,6 @@
             this.tableLayoutPanel1.SetColumnSpan(this.chkLockHostsFile, 2);
             this.chkLockHostsFile.Name = "chkLockHostsFile";
             this.chkLockHostsFile.UseVisualStyleBackColor = true;
-            // 
-            // comboLanguages
-            // 
-            resources.ApplyResources(this.comboLanguages, "comboLanguages");
-            this.comboLanguages.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboLanguages.FormattingEnabled = true;
-            this.comboLanguages.Name = "comboLanguages";
             // 
             // chkEnableHotkeys
             // 
@@ -648,7 +639,6 @@
         private System.Windows.Forms.Button btnAppRemoveAll;
         private System.Windows.Forms.TextBox txtExceptionListFilter;
         private System.Windows.Forms.CheckBox chkEnableBlocklists;
-        private System.Windows.Forms.ComboBox comboLanguages;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.CheckBox chkEnableHotkeys;
         private System.Windows.Forms.LinkLabel lblLinkAttributions;

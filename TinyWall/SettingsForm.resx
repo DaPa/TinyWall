@@ -894,30 +894,6 @@
   <data name="&gt;&gt;chkLockHostsFile.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="comboLanguages.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="comboLanguages.Location" type="System.Drawing.Point, System.Drawing">
-    <value>67, 3</value>
-  </data>
-  <data name="comboLanguages.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 21</value>
-  </data>
-  <data name="comboLanguages.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;comboLanguages.Name" xml:space="preserve">
-    <value>comboLanguages</value>
-  </data>
-  <data name="&gt;&gt;comboLanguages.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;comboLanguages.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;comboLanguages.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
   <data name="chkEnableHotkeys.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>

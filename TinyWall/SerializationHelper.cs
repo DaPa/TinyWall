@@ -146,7 +146,9 @@ namespace pylorak.TinyWall
             {
                 // Try loading from old serialization format, and save in new format if allowed
                 var xmlPath = filepath.EndsWith(".json") ? Path.ChangeExtension(filepath, ".xml") : filepath;
+#pragma warning disable CS0618 // Type or member is obsolete
                 var ret = LoadFromXMLFile<T>(xmlPath);
+#pragma warning restore CS0618 // Type or member is obsolete
                 if (!readOnlySource) SerializeToFile(ret, filepath);
                 return ret;
             }
@@ -181,7 +183,9 @@ namespace pylorak.TinyWall
             {
                 // Try loading from old serialization format, and save in new format if allowed
                 var xmlPath = filepath.EndsWith(".json") ? Path.ChangeExtension(filepath, ".xml") : filepath;
+#pragma warning disable CS0618 // Type or member is obsolete
                 var ret = LoadFromEncryptedXMLFile<T>(xmlPath, key, iv);
+#pragma warning restore CS0618 // Type or member is obsolete
                 SerializeToEncryptedFile(ret, filepath, key, iv);
                 return ret;
             }

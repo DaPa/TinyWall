@@ -16,6 +16,9 @@
 
     <!-- Used for WinRT access in .Net 4.8, not needed with .NET 5+ -->
     <TargetPlatformVersion>8.0</TargetPlatformVersion>
+
+    <!-- supress warning MSB3305: Processing COM reference "TaskScheduler" -->
+    <ResolveComReferenceSilent>True</ResolveComReferenceSilent>
     
   </PropertyGroup>
   <PropertyGroup>

@@ -1504,7 +1504,7 @@ namespace pylorak.TinyWall
                         bool rule_reload_needed = false;
 
                         // Check for inactivity and lock if necessary
-                        if (DateTime.Now - LastControllerCommandTime > TimeSpan.FromMinutes(10))
+                        if (DateTime.Now - LastControllerCommandTime > TimeSpan.FromMinutes(2))
                         {
                             Q.Add(new TwRequest(TwMessageSimple.CreateRequest(MessageType.LOCK)));
                         }
@@ -1517,7 +1517,7 @@ namespace pylorak.TinyWall
 
                         // Periodically reload all rules.
                         // This is needed to clear out temprary rules added due to child-process rule inheritance.
-                        if (DateTime.Now - LastRuleReloadTime > TimeSpan.FromMinutes(30))
+                        if (DateTime.Now - LastRuleReloadTime > TimeSpan.FromMinutes(10))
                         {
                             rule_reload_needed = true;
                         }

@@ -180,6 +180,42 @@
   <data name="&gt;&gt;btnOK.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="buttonConnections.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="buttonConnections.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="buttonConnections.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="buttonConnections.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonConnections.Location" type="System.Drawing.Point, System.Drawing">
+    <value>566, 370</value>
+  </data>
+  <data name="buttonConnections.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 36</value>
+  </data>
+  <data name="buttonConnections.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="buttonConnections.Text" xml:space="preserve">
+    <value>Show connections</value>
+  </data>
+  <data name="&gt;&gt;buttonConnections.Name" xml:space="preserve">
+    <value>buttonConnections</value>
+  </data>
+  <data name="&gt;&gt;buttonConnections.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonConnections.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;buttonConnections.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="txtExceptionListFilter.AccessibleName" xml:space="preserve">
     <value>Filter</value>
   </data>

@@ -936,6 +936,10 @@ namespace pylorak.TinyWall
                 ActiveForms.Remove(sf);
                 ApplyControllerSettings();
                 UpdateDisplay();
+                if (sf.closed_to_open_connections)
+                {
+                    this.mnuConnections_Click(sender, e);
+                }
             }
         }
 
@@ -1212,6 +1216,10 @@ namespace pylorak.TinyWall
             finally
             {
                 ActiveForms.Remove(cf);
+            }
+            if (cf.closed_to_open_manage)
+            {
+                mnuManage_Click(sender, e);
             }
         }
 

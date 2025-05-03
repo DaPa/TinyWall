@@ -736,10 +736,10 @@ namespace pylorak.TinyWall
             }
 
             var subj = new ExecutableSubject(PathMapper.Instance.ConvertPathIgnoreErrors(ofd.FileName, PathFormat.Win32));
-            AddExceptions(GlobalInstances.AppDatabase.GetExceptionsForApp(subj, true, out _));
+            AddExceptions(GlobalInstances.AppDatabase.GetExceptionsForApp(subj, true, out _, dummy.Handle));
         }
 
-        public void WhitelistProcesses(List<ProcessInfo> list)
+        public void WhitelistProcesses(List<ProcessInfo> list, IntPtr hwndOwner)
         {
             var exceptions = new List<FirewallExceptionV3>();
             foreach (var sel in list)
@@ -774,7 +774,7 @@ namespace pylorak.TinyWall
                         continue;
 
                     // Try to recognize app based on this file
-                    exceptions.AddRange(GlobalInstances.AppDatabase.GetExceptionsForApp(subj, true, out _));
+                    exceptions.AddRange(GlobalInstances.AppDatabase.GetExceptionsForApp(subj, true, out _, hwndOwner));
                 }
             }
 
@@ -803,10 +803,10 @@ namespace pylorak.TinyWall
                 }
                 finally
                 {
+                    WhitelistProcesses(selection, pf.Handle);
                     ActiveForms.Remove(pf);
                 }
             }
-            WhitelistProcesses(selection);
         }
 
         internal TwMessage ApplyFirewallSettings(ServerConfiguration srvConfig, bool showUI = true)
@@ -997,7 +997,7 @@ namespace pylorak.TinyWall
                         subj = new ExecutableSubject(exePath);
                     }
 
-                    AddExceptions(GlobalInstances.AppDatabase.GetExceptionsForApp(subj, true, out _));
+                    AddExceptions(GlobalInstances.AppDatabase.GetExceptionsForApp(subj, true, out _, (ActiveForms.Count > 0) ? ActiveForms[0].Handle : IntPtr.Zero));
                 });
             });
         }

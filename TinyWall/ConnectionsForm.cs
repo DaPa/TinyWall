@@ -422,7 +422,7 @@ namespace pylorak.TinyWall
             {
                 selection.Add((ProcessInfo)li.Tag);
             }
-            Controller.WhitelistProcesses(selection);
+            Controller.WhitelistProcesses(selection, this.Handle);
         }
 
         private void mnuCopyRemoteAddress_Click(object sender, EventArgs e)

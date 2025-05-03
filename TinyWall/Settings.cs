@@ -60,7 +60,7 @@ namespace pylorak.TinyWall
 
         // Manage window
         [DataMember(EmitDefaultValue = false)]
-        public bool AskForExceptionDetails = false;
+        public bool AskForExceptionDetails = true;
         [DataMember(EmitDefaultValue = false)]
         public int SettingsTabIndex;
         [DataMember(EmitDefaultValue = false)]
@@ -72,7 +72,7 @@ namespace pylorak.TinyWall
 
         // Hotkeys
         [DataMember(EmitDefaultValue = false)]
-        public bool EnableGlobalHotkeys = true;
+        public bool EnableGlobalHotkeys = false;
 
         [OnDeserialized]
         private void OnDeserialized(StreamingContext sc)

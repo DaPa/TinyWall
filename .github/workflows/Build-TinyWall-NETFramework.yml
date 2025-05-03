@@ -1,0 +1,73 @@
+name: Build TinyWall (.NET Framework 4.8)
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2.7.0
+      name: Checkout Code
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.1.1
+
+    - name: Navigate to Workspace
+      run: cd $GITHUB_WORKSPACE
+
+    - name: Reveal Workspace
+      run: echo "$GITHUB_WORKSPACE"
+
+    - name: Restore NuGet Packages
+      run: nuget restore TinyWall.sln
+
+    - name: Build Solution
+      run: |
+        msbuild.exe TinyWall.sln /p:Platform="x64" /p:Configuration="Release" /p:DeployOnBuild="true" /p:PublishProfile="FolderProfile" /p:PublishProfileRootFolder="TinyWall\PublishProfiles"
+#        /p:PublishDestination="TinyWall\bin\Publish" /t:restore /t:build
+
+# /p:OutputPath="TinyWall\bin\Release\"
+
+#  /t:PublishToFileSystem
+# /p:publish="TinyWall\Publish"
+
+
+#    - name: Copy Files
+#      run: copy "TinyWall\bin\Release\*" "MsiSetup\Sources\ProgramFiles\TinyWall\"
+
+#    - name: Change to Installer Directory
+#      run: echo %cd%
+
+#    - name: Build Installer
+#      run: |
+#        msbuild.exe MsiSetup\MsiSetup.wixproj /p:Platform="x64" /p:Configuration="Release" /p:OutputPath="MsiSetup\bin\Release\"
+
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      with:
+        tag_name: ${{ github.ref_name }}-${{ github.run_number }}
+        release_name: Release ${{ github.ref_name }}-${{ github.run_number }}
+        body: |
+          Changes in this Release
+          - https://github.com/${{ github.GITHUB_REPOSITORY }}/commits/master
+        draft: false
+        prerelease: true
+
+    - name: Upload Release
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}  # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+        asset_path: MsiSetup\bin\Release\TinyWallInstaller.msi
+        asset_name: TinyWallInstaller.msi
+        asset_content_type: application/x-msi

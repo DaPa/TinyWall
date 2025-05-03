@@ -1,6 +1,14 @@
 TinyWall Changelog
 ---------------------
 
+3.4.2 - DaPa's private build (03.05.2025.)
+- removed all localizations
+- give a parent to ApplicationExceptionForm
+- change some defaults (no AutoUpdateCheck, yes AskForExceptionDetails)
+- reduce some timeouts
+- jump from Settings to Connections and inverse
+- add timespan options for block list (instead of fixed 5 minutes)
+
 3.4.1 - Maintenance release (06.04.2025.)
 - Only enumerate UWP packages on system if actually needed
 - Add Last Modified column to application exceptions list

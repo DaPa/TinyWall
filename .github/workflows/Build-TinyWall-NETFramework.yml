@@ -57,7 +57,7 @@ jobs:
         release_name: Release ${{ github.ref_name }}-${{ github.run_number }}
         body: |
           Changes in this Release
-          - https://github.com/${{ github.GITHUB_REPOSITORY }}/commits/master
+          - https://github.com/${{ github.repository }}/commits/test-1
         draft: false
         prerelease: true
 

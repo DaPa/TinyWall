@@ -213,6 +213,39 @@ namespace pylorak.TinyWall
             listApplications_SelectedIndexChanged(listApplications, EventArgs.Empty);
         }
 
+        private bool LocalNetworkOnly(FirewallExceptionV3 ex)
+        {
+            if (ex.Id != Guid.Empty)
+            {
+                switch (ex.Policy.PolicyType)
+                {
+                    case PolicyType.HardBlock:
+                        {
+                            return false;
+                        }
+                    case PolicyType.Unrestricted:
+                        {
+                            var pol = (UnrestrictedPolicy)ex.Policy;
+                            return pol.LocalNetworkOnly;
+                        }
+                    case PolicyType.TcpUdpOnly:
+                        {
+                            var pol = (TcpUdpPolicy)ex.Policy;
+                            return pol.LocalNetworkOnly;
+                        }
+                    case PolicyType.RuleList:
+                        {
+                            var pol = (RuleListPolicy)ex.Policy;
+                            return false;
+                        }
+                    case PolicyType.Invalid:
+                        break;
+                    default:
+                        break;
+                }
+            }
+            return false;
+        }
         private ListViewItem ListItemFromAppException(FirewallExceptionV3 ex, UwpPackageList packageList)
         {
             var li = new ListViewItem();
@@ -225,9 +258,9 @@ namespace pylorak.TinyWall
             switch (ex.Subject.SubjectType)
             {
                 case SubjectType.Executable:
-                    li.Text = exeSubj!.ExecutableName;
-                    li.SubItems.Add(Resources.Messages.SubjectTypeExecutable);
-                    li.SubItems.Add(exeSubj.ExecutablePath);
+                    li.Text = exeSubj!.ExecutableName;  // columnApp = the "Application" column (the name)
+                    li.SubItems.Add(Resources.Messages.SubjectTypeExecutable);  // columnType = the "Type" column, e.g. "Executable", "UWP Package", etc
+                    li.SubItems.Add(exeSubj.ExecutablePath);  // columnDetails = the "Details" column (usually the path)
                     break;
                 case SubjectType.Service:
                     li.Text = srvSubj!.ServiceName;
@@ -249,11 +282,18 @@ namespace pylorak.TinyWall
                 default:
                     throw new NotImplementedException();
             }
-            li.SubItems.Add(ex.CreationDate.ToString("yyyy/MM/dd HH:mm"));
+            li.SubItems.Add(ex.CreationDate.ToString("yyyy/MM/dd HH:mm"));  // columnLastModified = the "Last Modified" column
+            li.SubItems.Add(LocalNetworkOnly(ex) ? "True" : "False");  // columnLocalOnly = the "Local" column
+            li.SubItems.Add(ex.ChildProcessesInherit ? "True" : "False");  // columnChildrenToo = the "Children" column
+            li.SubItems.Add(ex.Policy.PolicyType.ToString());  // columnAllowType = the "Allow" column
 
             if (ex.Policy.PolicyType == PolicyType.HardBlock)
             {
                 li.BackColor = Color.LightPink;
+            }
+            else if (LocalNetworkOnly(ex))
+            {
+                li.BackColor = Color.MistyRose;
             }
 
             if (uwpSubj is not null)

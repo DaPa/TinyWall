@@ -47,6 +47,9 @@
             this.columnType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnDetails = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnLastModified = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnLocalOnly = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnChildrenToo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnAllowType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.IconList = new System.Windows.Forms.ImageList(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -209,7 +212,10 @@
             this.columnApp,
             this.columnType,
             this.columnDetails,
-            this.columnLastModified});
+            this.columnLastModified,
+            this.columnLocalOnly,
+            this.columnChildrenToo,
+            this.columnAllowType});
             this.listApplications.FullRowSelect = true;
             this.listApplications.GridLines = true;
             this.listApplications.HideSelection = false;
@@ -243,6 +249,21 @@
             // 
             this.columnLastModified.Tag = "colLastModified";
             resources.ApplyResources(this.columnLastModified, "columnLastModified");
+            // 
+            // columnLocalOnly
+            // 
+            this.columnLocalOnly.Tag = "colLocalOnly";
+            resources.ApplyResources(this.columnLocalOnly, "columnLocalOnly");
+            // 
+            // columnChildrenToo
+            // 
+            this.columnChildrenToo.Tag = "colChildrenToo";
+            resources.ApplyResources(this.columnChildrenToo, "columnChildrenToo");
+            // 
+            // columnAllowType
+            // 
+            this.columnAllowType.Tag = "colAllowType";
+            resources.ApplyResources(this.columnAllowType, "columnAllowType");
             // 
             // IconList
             // 
@@ -659,5 +680,8 @@
         private System.Windows.Forms.Button btnGithub;
         private System.Windows.Forms.ColumnHeader columnLastModified;
         private System.Windows.Forms.Button buttonConnections;
+        private System.Windows.Forms.ColumnHeader columnLocalOnly;
+        private System.Windows.Forms.ColumnHeader columnChildrenToo;
+        private System.Windows.Forms.ColumnHeader columnAllowType;
     }
 }

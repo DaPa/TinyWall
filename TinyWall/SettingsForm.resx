@@ -504,6 +504,27 @@
   <data name="columnLastModified.Text" xml:space="preserve">
     <value>Last Modified</value>
   </data>
+  <data name="columnLastModified.Width" type="System.Int32, mscorlib">
+    <value>80</value>
+  </data>
+  <data name="columnLocalOnly.Text" xml:space="preserve">
+    <value>Local</value>
+  </data>
+  <data name="columnLocalOnly.Width" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
+  <data name="columnChildrenToo.Text" xml:space="preserve">
+    <value>Children</value>
+  </data>
+  <data name="columnChildrenToo.Width" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
+  <data name="columnAllowType.Text" xml:space="preserve">
+    <value>Allow</value>
+  </data>
+  <data name="columnAllowType.Width" type="System.Int32, mscorlib">
+    <value>80</value>
+  </data>
   <data name="listApplications.Location" type="System.Drawing.Point, System.Drawing">
     <value>26, 97</value>
   </data>
@@ -1759,6 +1780,24 @@
     <value>columnLastModified</value>
   </data>
   <data name="&gt;&gt;columnLastModified.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;columnLocalOnly.Name" xml:space="preserve">
+    <value>columnLocalOnly</value>
+  </data>
+  <data name="&gt;&gt;columnLocalOnly.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;columnChildrenToo.Name" xml:space="preserve">
+    <value>columnChildrenToo</value>
+  </data>
+  <data name="&gt;&gt;columnChildrenToo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;columnAllowType.Name" xml:space="preserve">
+    <value>columnAllowType</value>
+  </data>
+  <data name="&gt;&gt;columnAllowType.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;IconList.Name" xml:space="preserve">

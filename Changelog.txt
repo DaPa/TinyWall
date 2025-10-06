@@ -1,13 +1,17 @@
 TinyWall Changelog
 ---------------------
 
+3.4.3 - DaPa's private build (07.10.2025.)
+- highlight Local-only in MistyRose (similar to HardBlock which is LightPink)
+- add Local-network-only/Children-too/Allow-type columns
+
 3.4.2 - DaPa's private build (03.05.2025.)
 - removed all localizations
 - give a parent to ApplicationExceptionForm
 - change some defaults (no AutoUpdateCheck, yes AskForExceptionDetails)
 - reduce some timeouts
 - jump from Settings to Connections and inverse
-- add timespan options for block list (instead of fixed 5 minutes)
+- add more timespan options for block list (instead of fixed 5 minutes)
 
 3.4.1 - Maintenance release (06.04.2025.)
 - Only enumerate UWP packages on system if actually needed

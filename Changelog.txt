@@ -1,6 +1,18 @@
 TinyWall Changelog
 ---------------------
 
+3.6.3 - DaPa's private test build (31.07.2026.)
+- highlight Local-only in MistyRose (similar to HardBlock which is LightPink)
+- add Local-network-only/Children-too/Allow-type columns
+- jump from Settings to Connections and inverse
+- give a parent to ApplicationExceptionForm
+- change some defaults (no AutoUpdateCheck, yes AskForExceptionDetails)
+- reduce some timeouts
+- add more timespan options for block list (instead of fixed 5 minutes)
+- removed all localizations!
+
+---------------------
+
 3.5.1 - Important update (07.06.2026.)
 - Add dark mode support for GUI
 - Add support for Windows on ARM devices

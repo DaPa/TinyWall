@@ -1,0 +1,46 @@
+name: Build TinyWall (.NET Framework 4.8)
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v7
+      name: Checkout Code
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v3
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v4
+
+    - name: Restore NuGet Packages
+      run: nuget restore TinyWall.sln
+
+    - name: Build Solution
+      run: |
+        msbuild.exe TinyWall.sln /p:Platform="x64" /p:Configuration="Release" /p:DeployOnBuild="true" /p:PublishProfile="FolderProfile" /p:PublishProfileRootFolder="TinyWall\PublishProfiles"
+
+    - name: Verify MSI output
+      shell: pwsh
+      run: |
+        $msi = Get-ChildItem MsiSetup\bin\Release\*.msi
+        if (-not $msi)
+        {
+          throw "No MSI file generated."
+        }
+        $msi | Format-Table FullName
+
+    - name: Create release and upload MSI
+      uses: softprops/action-gh-release@v3
+      with:
+        generate_release_notes: true
+        files: MsiSetup/bin/Release/*.msi

@@ -1,3 +1,5 @@
+*.v*
+*.user
 *.exe
 *.dll
 *.msi

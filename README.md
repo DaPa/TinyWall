@@ -1,3 +1,5 @@
+![GitHub Actions: Build TinyWall Workflow](https://github.com/DaPa/TinyWall/actions/workflows/Build-TinyWall-NETFramework.yml/badge.svg)
+
 <br />
 <div align="center">
   <h3 align="center">TinyWall</h3>
@@ -9,7 +11,14 @@
   </p>
 </div>
 
+
+# Note
+
+Test build only!
+
+
 ## About
+
 
 TinyWall is a free, lightweight, and non-intrusive, secure by default firewall for Windows. Built to just simply sit in your system tray, quietly blocking any application you did not explicitly allow network access. TinyWall installs no kernel drivers, so it cannot negatively influence system stability. It also repects your privacy and collects absolutely no data about the user or their computer.
 

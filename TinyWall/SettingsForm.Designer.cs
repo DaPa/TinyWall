@@ -33,6 +33,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.buttonConnections = new System.Windows.Forms.Button();
             this.txtExceptionListFilter = new System.Windows.Forms.TextBox();
             this.btnAppRemoveAll = new System.Windows.Forms.Button();
             this.btnAppAutoDetect = new System.Windows.Forms.Button();
@@ -46,6 +47,9 @@
             this.columnType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnDetails = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnLastModified = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnLocalOnly = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnChildrenToo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnAllowType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.IconList = new System.Windows.Forms.ImageList(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -64,7 +68,6 @@
             this.chkBlockMalwarePorts = new System.Windows.Forms.CheckBox();
             this.chkDisplayOffBlock = new System.Windows.Forms.CheckBox();
             this.chkLockHostsFile = new System.Windows.Forms.CheckBox();
-            this.comboLanguages = new System.Windows.Forms.ComboBox();
             this.chkEnableHotkeys = new System.Windows.Forms.CheckBox();
             this.chkAutoUpdateCheck = new System.Windows.Forms.CheckBox();
             this.chkAskForExceptionDetails = new System.Windows.Forms.CheckBox();
@@ -123,6 +126,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.buttonConnections);
             this.tabPage3.Controls.Add(this.txtExceptionListFilter);
             this.tabPage3.Controls.Add(this.btnAppRemoveAll);
             this.tabPage3.Controls.Add(this.btnAppAutoDetect);
@@ -136,6 +140,13 @@
             resources.ApplyResources(this.tabPage3, "tabPage3");
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // buttonConnections
+            // 
+            resources.ApplyResources(this.buttonConnections, "buttonConnections");
+            this.buttonConnections.Name = "buttonConnections";
+            this.buttonConnections.UseVisualStyleBackColor = true;
+            this.buttonConnections.Click += new System.EventHandler(this.buttonConnections_Click);
             // 
             // txtExceptionListFilter
             // 
@@ -203,7 +214,10 @@
             this.columnApp,
             this.columnType,
             this.columnDetails,
-            this.columnLastModified});
+            this.columnLastModified,
+            this.columnLocalOnly,
+            this.columnChildrenToo,
+            this.columnAllowType});
             this.listApplications.FullRowSelect = true;
             this.listApplications.GridLines = true;
             this.listApplications.HideSelection = false;
@@ -237,6 +251,21 @@
             // 
             this.columnLastModified.Tag = "colLastModified";
             resources.ApplyResources(this.columnLastModified, "columnLastModified");
+            // 
+            // columnLocalOnly
+            // 
+            this.columnLocalOnly.Tag = "colLocalOnly";
+            resources.ApplyResources(this.columnLocalOnly, "columnLocalOnly");
+            // 
+            // columnChildrenToo
+            // 
+            this.columnChildrenToo.Tag = "colChildrenToo";
+            resources.ApplyResources(this.columnChildrenToo, "columnChildrenToo");
+            // 
+            // columnAllowType
+            // 
+            this.columnAllowType.Tag = "colAllowType";
+            resources.ApplyResources(this.columnAllowType, "columnAllowType");
             // 
             // IconList
             // 
@@ -312,7 +341,6 @@
             this.tableLayoutPanel1.Controls.Add(this.chkBlockMalwarePorts, 4, 3);
             this.tableLayoutPanel1.Controls.Add(this.chkDisplayOffBlock, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.chkLockHostsFile, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.comboLanguages, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.chkEnableHotkeys, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.chkAutoUpdateCheck, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.chkAskForExceptionDetails, 0, 3);
@@ -368,13 +396,6 @@
             this.tableLayoutPanel1.SetColumnSpan(this.chkLockHostsFile, 2);
             this.chkLockHostsFile.Name = "chkLockHostsFile";
             this.chkLockHostsFile.UseVisualStyleBackColor = true;
-            // 
-            // comboLanguages
-            // 
-            resources.ApplyResources(this.comboLanguages, "comboLanguages");
-            this.comboLanguages.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboLanguages.FormattingEnabled = true;
-            this.comboLanguages.Name = "comboLanguages";
             // 
             // chkEnableHotkeys
             // 
@@ -578,8 +599,10 @@
             // 
             // SettingsForm
             // 
+            this.AcceptButton = this.btnOK;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.tabControl1);
@@ -664,7 +687,6 @@
         private System.Windows.Forms.Button btnAppRemoveAll;
         private System.Windows.Forms.TextBox txtExceptionListFilter;
         private System.Windows.Forms.CheckBox chkEnableBlocklists;
-        private System.Windows.Forms.ComboBox comboLanguages;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.CheckBox chkEnableHotkeys;
         private System.Windows.Forms.LinkLabel lblLinkAttributions;
@@ -675,5 +697,9 @@
         private System.Windows.Forms.ColumnHeader columnLastModified;
         private System.Windows.Forms.ComboBox comboUiTheme;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button buttonConnections;
+        private System.Windows.Forms.ColumnHeader columnLocalOnly;
+        private System.Windows.Forms.ColumnHeader columnChildrenToo;
+        private System.Windows.Forms.ColumnHeader columnAllowType;
     }
 }

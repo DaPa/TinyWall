@@ -125,6 +125,21 @@
   <data name="mnuTrafficRate.Text" xml:space="preserve">
     <value>&lt;Traffic rate&gt;</value>
   </data>
+  <data name="TrayMenu.Text" xml:space="preserve">
+    <value>&lt;TrayMenu&gt;</value>
+  </data>
+  <data name="toolStripMenuItem1.Text" xml:space="preserve">
+    <value>&lt;toolStripMenuItem1&gt;</value>
+  </data>
+  <data name="toolStripMenuItem2.Text" xml:space="preserve">
+    <value>&lt;toolStripMenuItem2&gt;</value>
+  </data>
+  <data name="toolStripMenuItem3.Text" xml:space="preserve">
+    <value>&lt;toolStripMenuItem3&gt;</value>
+  </data>
+  <data name="toolStripMenuItem5.Text" xml:space="preserve">
+    <value>&lt;toolStripMenuItem5&gt;</value>
+  </data>
   <data name="mnuModeNormal.Text" xml:space="preserve">
     <value>Normal protection</value>
   </data>

@@ -42,6 +42,8 @@ namespace pylorak.TinyWall
         private string? m_NewPassword;
         private Size IconSize = new((int)Math.Round(16 * Utils.DpiScalingFactor), (int)Math.Round(16 * Utils.DpiScalingFactor));
 
+        public bool closed_to_open_connections = false;
+
         internal SettingsForm(ServerConfiguration service, ControllerSettings controller)
         {
             InitializeComponent();
@@ -66,6 +68,7 @@ namespace pylorak.TinyWall
             this.btnUpdate.Image = GlobalInstances.UpdateBtnIcon;
             this.btnWeb.Image = GlobalInstances.WebBtnIcon;
             this.btnDonate.BackgroundImage = Resources.Icons.donate;
+            this.closed_to_open_connections = false;
 
             const string TEMP_ICON_KEY = "generic-executable";
             IconList.Images.Add(TEMP_ICON_KEY, Utils.GetIconContained(".exe", IconSize.Width, IconSize.Height));
@@ -93,7 +96,7 @@ namespace pylorak.TinyWall
             {
                 try
                 {
-                    list.AddRange(GlobalInstances.AppDatabase.GetExceptionsForApp(new ExecutableSubject(file), true, out _));
+                    list.AddRange(GlobalInstances.AppDatabase.GetExceptionsForApp(new ExecutableSubject(file), true, out _, this.Handle));
                 }
                 catch { }
             }
@@ -124,16 +127,6 @@ namespace pylorak.TinyWall
                 chkAutoUpdateCheck.Checked = TmpConfig.Service.AutoUpdateCheck;
                 chkAskForExceptionDetails.Checked = TmpConfig.Controller.AskForExceptionDetails;
                 chkEnableHotkeys.Checked = TmpConfig.Controller.EnableGlobalHotkeys;
-                comboLanguages.SelectedIndex = 0;
-                for (int i = 0; i < comboLanguages.Items.Count; ++i)
-                {
-                    IdWithName item = (IdWithName)comboLanguages.Items[i];
-                    if (item.Id.Equals(TmpConfig.Controller.Language, StringComparison.OrdinalIgnoreCase))
-                    {
-                        comboLanguages.SelectedIndex = i;
-                        break;
-                    }
-                }
                 comboUiTheme.SelectedIndex = 0;
                 for (int i = 0; i < comboUiTheme.Items.Count; ++i)
                 {
@@ -239,6 +232,39 @@ namespace pylorak.TinyWall
             listApplications_SelectedIndexChanged(listApplications, EventArgs.Empty);
         }
 
+        private bool LocalNetworkOnly(FirewallExceptionV3 ex)
+        {
+            if (ex.Id != Guid.Empty)
+            {
+                switch (ex.Policy.PolicyType)
+                {
+                    case PolicyType.HardBlock:
+                        {
+                            return false;
+                        }
+                    case PolicyType.Unrestricted:
+                        {
+                            var pol = (UnrestrictedPolicy)ex.Policy;
+                            return pol.LocalNetworkOnly;
+                        }
+                    case PolicyType.TcpUdpOnly:
+                        {
+                            var pol = (TcpUdpPolicy)ex.Policy;
+                            return pol.LocalNetworkOnly;
+                        }
+                    case PolicyType.RuleList:
+                        {
+                            var pol = (RuleListPolicy)ex.Policy;
+                            return false;
+                        }
+                    case PolicyType.Invalid:
+                        break;
+                    default:
+                        break;
+                }
+            }
+            return false;
+        }
         private ListViewItem ListItemFromAppException(FirewallExceptionV3 ex, UwpPackageList packageList)
         {
             Color deletedRowBackColor = (DarkMode != null) && DarkMode.IsDarkMode ? Color.Black : Color.LightGray;
@@ -253,9 +279,9 @@ namespace pylorak.TinyWall
             switch (ex.Subject.SubjectType)
             {
                 case SubjectType.Executable:
-                    li.Text = exeSubj!.ExecutableName;
-                    li.SubItems.Add(Resources.Messages.SubjectTypeExecutable);
-                    li.SubItems.Add(exeSubj.ExecutablePath);
+                    li.Text = exeSubj!.ExecutableName;  // columnApp = the "Application" column (the name)
+                    li.SubItems.Add(Resources.Messages.SubjectTypeExecutable);  // columnType = the "Type" column, e.g. "Executable", "UWP Package", etc
+                    li.SubItems.Add(exeSubj.ExecutablePath);  // columnDetails = the "Details" column (usually the path)
                     break;
                 case SubjectType.Service:
                     li.Text = srvSubj!.ServiceName;
@@ -277,11 +303,18 @@ namespace pylorak.TinyWall
                 default:
                     throw new NotImplementedException();
             }
-            li.SubItems.Add(ex.CreationDate.ToString("yyyy/MM/dd HH:mm"));
+            li.SubItems.Add(ex.CreationDate.ToString("yyyy/MM/dd HH:mm"));  // columnLastModified = the "Last Modified" column
+            li.SubItems.Add(LocalNetworkOnly(ex) ? "True" : "False");  // columnLocalOnly = the "Local" column
+            li.SubItems.Add(ex.ChildProcessesInherit ? "True" : "False");  // columnChildrenToo = the "Children" column
+            li.SubItems.Add(ex.Policy.PolicyType.ToString());  // columnAllowType = the "Allow" column
 
             if (ex.Policy.PolicyType == PolicyType.HardBlock)
             {
                 li.BackColor = blockedRowBackColor;
+            }
+            else if (LocalNetworkOnly(ex))
+            {
+                li.BackColor = Color.MistyRose;
             }
 
             if (uwpSubj is not null)
@@ -349,7 +382,6 @@ namespace pylorak.TinyWall
             TmpConfig.Service.Blocklists.EnableBlocklists = chkEnableBlocklists.Checked;
             TmpConfig.Service.ActiveProfile.DisplayOffBlock = chkDisplayOffBlock.Checked;
 
-            TmpConfig.Controller.Language = ((IdWithName)comboLanguages.SelectedItem).Id;
             TmpConfig.Controller.UiTheme = ((IdWithName)comboUiTheme.SelectedItem).Id;
 
             this.DialogResult = DialogResult.OK;
@@ -569,26 +601,6 @@ namespace pylorak.TinyWall
             listApplications.ListViewItemSorter = new ListViewItemComparer(0, IconList);
             tabControl1.SelectedIndex = TmpConfig.Controller.SettingsTabIndex;
 
-            comboLanguages.Items.Add(new IdWithName("auto", "Automatic"));
-            comboLanguages.Items.Add(new IdWithName("bg", "български"));
-            comboLanguages.Items.Add(new IdWithName("cs", "Čeština"));
-            comboLanguages.Items.Add(new IdWithName("de", "Deutsch"));
-            comboLanguages.Items.Add(new IdWithName("en", "English"));
-            comboLanguages.Items.Add(new IdWithName("es", "Español"));
-            comboLanguages.Items.Add(new IdWithName("fr", "Français"));
-            comboLanguages.Items.Add(new IdWithName("it", "Italiano"));
-            comboLanguages.Items.Add(new IdWithName("he-IL", "עברית"));
-            comboLanguages.Items.Add(new IdWithName("hu", "Magyar"));
-            comboLanguages.Items.Add(new IdWithName("nl", "Nederlands"));
-            comboLanguages.Items.Add(new IdWithName("pl", "Polski"));
-            comboLanguages.Items.Add(new IdWithName("pt-BR", "Português Brasileiro"));
-            comboLanguages.Items.Add(new IdWithName("ru", "Русский"));
-            comboLanguages.Items.Add(new IdWithName("tr", "Türkçe"));
-            comboLanguages.Items.Add(new IdWithName("ja", "日本語"));
-            comboLanguages.Items.Add(new IdWithName("ko", "한국어"));
-            comboLanguages.Items.Add(new IdWithName("uk", "Українська"));
-            comboLanguages.Items.Add(new IdWithName("zh", "汉语"));
-
             comboUiTheme.Items.Add(new IdWithName("auto", Resources.Messages.UiThemeAuto));
             comboUiTheme.Items.Add(new IdWithName("light", Resources.Messages.UiThemeLight));
             comboUiTheme.Items.Add(new IdWithName("dark", Resources.Messages.UiThemeDark));
@@ -692,6 +704,12 @@ namespace pylorak.TinyWall
         {
             var psi = new ProcessStartInfo(@"https://github.com/pylorak/tinywall") { UseShellExecute = true };
             Process.Start(psi)?.Dispose();
+        }
+
+        private void buttonConnections_Click(object sender, EventArgs e)
+        {
+            this.closed_to_open_connections = true;
+            btnCancel_Click(sender, e);
         }
     }
 }

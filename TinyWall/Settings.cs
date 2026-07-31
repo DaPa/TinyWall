@@ -12,9 +12,7 @@ namespace pylorak.TinyWall
     [DataContract(Namespace = "http://schemas.datacontract.org/2004/07/PKSoft")]
     public sealed class ControllerSettings : ISerializable<ControllerSettings>
     {
-        // UI Customization
-        [DataMember(EmitDefaultValue = false)]
-        public string Language = "auto";
+        // Connections window
         [DataMember(EmitDefaultValue = false)]
         public string UiTheme = "auto";
 
@@ -66,7 +64,7 @@ namespace pylorak.TinyWall
 
         // Manage window
         [DataMember(EmitDefaultValue = false)]
-        public bool AskForExceptionDetails = false;
+        public bool AskForExceptionDetails = true;
         [DataMember(EmitDefaultValue = false)]
         public int SettingsTabIndex;
         [DataMember(EmitDefaultValue = false)]
@@ -78,7 +76,7 @@ namespace pylorak.TinyWall
 
         // Hotkeys
         [DataMember(EmitDefaultValue = false)]
-        public bool EnableGlobalHotkeys = true;
+        public bool EnableGlobalHotkeys = false;
 
         [OnDeserialized]
         private void OnDeserialized(StreamingContext sc)

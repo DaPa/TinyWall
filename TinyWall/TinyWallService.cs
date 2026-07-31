@@ -1500,7 +1500,7 @@ namespace pylorak.TinyWall
                             WfpEngine.CollectNetEvents = true;
 
                         // Check for inactivity and lock if necessary
-                        if (DateTime.Now - LastControllerCommandTime > TimeSpan.FromMinutes(10))
+                        if (DateTime.Now - LastControllerCommandTime > TimeSpan.FromMinutes(2))
                         {
                             Q.Add(new TwRequest(TwMessageSimple.CreateRequest(MessageType.LOCK)));
                         }
@@ -1513,7 +1513,7 @@ namespace pylorak.TinyWall
 
                         // Periodically reload all rules.
                         // This is needed to clear out temprary rules added due to child-process rule inheritance.
-                        if (DateTime.Now - LastRuleReloadTime > TimeSpan.FromMinutes(30))
+                        if (DateTime.Now - LastRuleReloadTime > TimeSpan.FromMinutes(10))
                         {
                             rule_reload_needed = true;
                         }
@@ -1872,7 +1872,7 @@ namespace pylorak.TinyWall
                         return;
                 }
 
-                var exceptions = GlobalInstances.AppDatabase.GetExceptionsForApp(newSubject, false, out _);
+                var exceptions = GlobalInstances.AppDatabase.GetExceptionsForApp(newSubject, false, out _, IntPtr.Zero);
                 LearningNewExceptions.AddRange(exceptions);
             }
         }

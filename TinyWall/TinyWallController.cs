@@ -328,20 +328,8 @@ namespace pylorak.TinyWall
             this.StartupOpts = opts;
 
             ActiveConfig.Controller = ControllerSettings.Load();
-            try
-            {
-                if (!ActiveConfig.Controller.Language.Equals("auto", StringComparison.InvariantCultureIgnoreCase))
-                {
-                    Thread.CurrentThread.CurrentUICulture = new CultureInfo(ActiveConfig.Controller.Language);
-                    System.Windows.Forms.Application.CurrentCulture = Thread.CurrentThread.CurrentUICulture;
-                }
-                else
-                {
-                    Thread.CurrentThread.CurrentUICulture = Program.DefaultOsCulture;
-                    System.Windows.Forms.Application.CurrentCulture = Program.DefaultOsCulture;
-                }
-            }
-            catch { }
+            Thread.CurrentThread.CurrentUICulture = Program.DefaultOsCulture;
+            System.Windows.Forms.Application.CurrentCulture = Program.DefaultOsCulture;
 
             InitializeComponent();
             Utils.SetRightToLeft(TrayMenu);
@@ -735,10 +723,10 @@ namespace pylorak.TinyWall
             }
 
             var subj = new ExecutableSubject(PathMapper.Instance.ConvertPathIgnoreErrors(ofd.FileName, PathFormat.Win32));
-            AddExceptions(GlobalInstances.AppDatabase.GetExceptionsForApp(subj, true, out _));
+            AddExceptions(GlobalInstances.AppDatabase.GetExceptionsForApp(subj, true, out _, dummy.Handle));
         }
 
-        public void WhitelistProcesses(List<ProcessInfo> list)
+        public void WhitelistProcesses(List<ProcessInfo> list, IntPtr hwndOwner)
         {
             var exceptions = new List<FirewallExceptionV3>();
             foreach (var sel in list)
@@ -773,7 +761,7 @@ namespace pylorak.TinyWall
                         continue;
 
                     // Try to recognize app based on this file
-                    exceptions.AddRange(GlobalInstances.AppDatabase.GetExceptionsForApp(subj, true, out _));
+                    exceptions.AddRange(GlobalInstances.AppDatabase.GetExceptionsForApp(subj, true, out _, hwndOwner));
                 }
             }
 
@@ -802,10 +790,10 @@ namespace pylorak.TinyWall
                 }
                 finally
                 {
+                    WhitelistProcesses(selection, pf.Handle);
                     ActiveForms.Remove(pf);
                 }
             }
-            WhitelistProcesses(selection);
         }
 
         internal TwMessage ApplyFirewallSettings(ServerConfiguration srvConfig, bool showUI = true)
@@ -903,8 +891,6 @@ namespace pylorak.TinyWall
             {
                 if (sf.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    var oldLang = ActiveConfig.Controller.Language;
-
                     // Save settings
                     ActiveConfig.Controller = sf.TmpConfig.Controller;
                     ActiveConfig.Controller.Save();
@@ -930,12 +916,6 @@ namespace pylorak.TinyWall
                             FirewallState.HasPassword = !string.IsNullOrEmpty(newPassword);
                         }
                     }
-
-                    if (oldLang != ActiveConfig.Controller.Language)
-                    {
-                        Program.RestartOnQuit = true;
-                        ExitThread();
-                    }
                 }
             }
             finally
@@ -943,6 +923,10 @@ namespace pylorak.TinyWall
                 ActiveForms.Remove(sf);
                 ApplyControllerSettings();
                 UpdateDisplay();
+                if (sf.closed_to_open_connections)
+                {
+                    this.mnuConnections_Click(sender, e);
+                }
             }
         }
 
@@ -1004,7 +988,7 @@ namespace pylorak.TinyWall
                         subj = new ExecutableSubject(exePath);
                     }
 
-                    AddExceptions(GlobalInstances.AppDatabase.GetExceptionsForApp(subj, true, out _));
+                    AddExceptions(GlobalInstances.AppDatabase.GetExceptionsForApp(subj, true, out _, (ActiveForms.Count > 0) ? ActiveForms[0].Handle : IntPtr.Zero));
                 });
             });
         }
@@ -1219,6 +1203,10 @@ namespace pylorak.TinyWall
             finally
             {
                 ActiveForms.Remove(cf);
+            }
+            if (cf.closed_to_open_manage)
+            {
+                mnuManage_Click(sender, e);
             }
         }
 

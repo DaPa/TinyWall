@@ -152,7 +152,7 @@ namespace pylorak.TinyWall
         public bool LockHostsFile { get; set; } = true;
 
         [DataMember(EmitDefaultValue = false)]
-        public bool AutoUpdateCheck { get; set; } = true;
+        public bool AutoUpdateCheck { get; set; } = false;
 
         [DataMember(EmitDefaultValue = false)]
         public FirewallMode StartupMode { get; set; } = FirewallMode.Normal;
